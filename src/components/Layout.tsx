@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import Head from 'next/head';
 import { css } from '@emotion/react';
-import Logo from '@/components/logo';
-import Footer from '@/components/footer';
+import Logo from '@/components/Logo';
+import Footer from '@/components/Footer';
 
 const Layout: FC = ({ children }) => {
   return (

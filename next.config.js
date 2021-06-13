@@ -1,5 +1,8 @@
 module.exports = {
-experimental: {
-      eslint: true
-    }
-  }
+  experimental: {
+    eslint: true,
+  },
+  images: {
+    domains: ['images.unsplash.com'],
+  },
+};

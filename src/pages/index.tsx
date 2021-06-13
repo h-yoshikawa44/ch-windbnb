@@ -1,7 +1,8 @@
-import Head from 'next/head';
-import Image from 'next/image';
 import { css } from '@emotion/react';
 import Layout from '@/components/Layout';
+import SearchBox from '@/components/SearchBox';
+import StayCard from '@/components/StayCard';
+import { stays } from '@/data/stays';
 
 const Home = () => {
   return (
@@ -14,6 +15,20 @@ const Home = () => {
         <p css={[description, textCenter]}>
           Get started by editing <code css={code}>pages/index.js</code>
         </p>
+
+        <SearchBox />
+
+        <StayCard
+          city={stays[0].city}
+          country={stays[0].country}
+          superHost={stays[0].superHost}
+          title={stays[0].title}
+          rating={stays[0].rating}
+          maxGuests={stays[0].maxGuests}
+          type={stays[0].type}
+          beds={stays[0].beds}
+          photo={stays[0].photo}
+        />
 
         <div css={grid}>
           <a href="https://nextjs.org/docs" css={card}>
