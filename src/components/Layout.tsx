@@ -2,6 +2,7 @@ import { FC } from 'react';
 import Head from 'next/head';
 import { css } from '@emotion/react';
 import Logo from '@/components/Logo';
+import SearchBox from '@/components/SearchBox';
 import Footer from '@/components/Footer';
 
 const Layout: FC = ({ children }) => {
@@ -16,7 +17,12 @@ const Layout: FC = ({ children }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div css={container}>
-        <Logo />
+        <header css={header}>
+          <h1>
+            <Logo />
+          </h1>
+          <SearchBox />
+        </header>
         {children}
         <Footer />
       </div>
@@ -25,7 +31,15 @@ const Layout: FC = ({ children }) => {
 };
 
 const container = css`
-  padding: 48px 96px;
+  max-width: 1280px;
+  padding: 0 4%;
+  margin: 0 auto;
+`;
+
+const header = css`
+  display: flex;
+  justify-content: space-between;
+  padding-top: 32px;
 `;
 
 export default Layout;

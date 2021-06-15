@@ -29,7 +29,7 @@ const StayCard: VFC<Props> = ({
         height={272}
       />
       <div css={cartionBlock}>
-        {superHost && <SuperHostChip />}
+        {superHost && <SuperHostChip css={customSuperHostChip} />}
         <div css={captionText}>{caption}</div>
         <Rating css={customRating} value={rating.toFixed(2)} />
       </div>
@@ -46,6 +46,10 @@ const cartionBlock = css`
   display: flex;
   align-items: baseline;
   padding: 16px 0;
+`;
+
+const customSuperHostChip = css`
+  margin-right: 8px;
 `;
 
 const captionText = css`

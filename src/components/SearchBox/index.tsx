@@ -1,10 +1,12 @@
-import { VFC } from 'react';
+import { VFC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
 import { Search } from '@emotion-icons/material-rounded/Search';
 
-const SearchBox: VFC = () => {
+type Props = ComponentPropsWithRef<'div'>;
+
+const SearchBox: VFC<Props> = ({ ...props }) => {
   return (
-    <div css={searchBox}>
+    <div css={searchBox} {...props}>
       <input css={searchBoxInput} placeholder="Add location" />
       <input css={searchBoxInput} placeholder="Add guests" />
       <button css={searchButton}>
@@ -16,6 +18,7 @@ const SearchBox: VFC = () => {
 
 const searchBox = css`
   display: flex;
+  max-width: 296px;
   height: 56px;
   background: #fff;
   border-radius: 16px;
@@ -27,6 +30,7 @@ const searchBox = css`
 `;
 
 const searchBoxInput = css`
+  min-width: 106px;
   padding: 16px;
   font-family: Mulish, sans-serif;
   font-size: 14px;

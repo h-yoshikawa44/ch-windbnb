@@ -1,8 +1,14 @@
-import { VFC } from 'react';
+import { VFC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
 
-const SuperHostChip: VFC = () => {
-  return <div css={superHostChip}>SUPER HOST</div>;
+type Props = ComponentPropsWithRef<'div'>;
+
+const SuperHostChip: VFC<Props> = ({ ...props }) => {
+  return (
+    <div css={superHostChip} {...props}>
+      SUPER HOST
+    </div>
+  );
 };
 
 const superHostChip = css`
