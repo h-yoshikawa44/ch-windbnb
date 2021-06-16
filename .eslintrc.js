@@ -1,3 +1,11 @@
 module.exports = {
-  "extends": "next"
-}
+  extends: ['next', 'prettier'],
+  overrides: [
+    {
+      files: ['*.tsx'],
+      rules: {
+        'react/prop-types': 'off',
+      },
+    },
+  ],
+};
