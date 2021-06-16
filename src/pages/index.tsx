@@ -1,10 +1,7 @@
-import { GetStaticProps } from 'next';
 import { css } from '@emotion/react';
-import { QueryClient } from 'react-query';
-import { dehydrate } from 'react-query/hydration';
 import Layout from '@/components/Layout';
 import StayCard from '@/components/StayCard';
-import { stayListPrefetchQuery, useGetStayListQuery } from '@/hooks';
+import { useGetStayListQuery } from '@/hooks';
 
 const Home = () => {
   const { data } = useGetStayListQuery();
@@ -37,18 +34,6 @@ const Home = () => {
       </main>
     </Layout>
   );
-};
-
-export const getStaticProps: GetStaticProps = async (context) => {
-  const queryClient = new QueryClient();
-
-  await stayListPrefetchQuery(queryClient);
-
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
 };
 
 const subHeader = css`
