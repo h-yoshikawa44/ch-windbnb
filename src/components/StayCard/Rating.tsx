@@ -21,7 +21,7 @@ const icon = css`
 `;
 
 const ratingValue = css`
-  padding-left: 8px;
+  margin-left: 8px;
   font-family: Montserrat, sans-serif;
   font-size: 14px;
   font-style: normal;

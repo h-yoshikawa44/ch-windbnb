@@ -1,10 +1,13 @@
+import { GetServerSideProps } from 'next';
 import { css } from '@emotion/react';
+import { QueryClient } from 'react-query';
+import { dehydrate } from 'react-query/hydration';
 import Layout from '@/components/Layout';
 import StayCard from '@/components/StayCard';
-import { useGetStayListQuery } from '@/hooks';
+import { stayListPrefetchQuery, useGetStayListQuery } from '@/hooks';
 
 const Home = () => {
-  const { data } = useGetStayListQuery();
+  const { data } = useGetStayListQuery({ enabled: false });
 
   return (
     <Layout>
@@ -34,6 +37,18 @@ const Home = () => {
       </main>
     </Layout>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const queryClient = new QueryClient();
+
+  await stayListPrefetchQuery(queryClient);
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
 };
 
 const subHeader = css`
