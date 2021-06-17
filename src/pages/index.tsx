@@ -7,7 +7,7 @@ import StayCard from '@/components/StayCard';
 import { stayListPrefetchQuery, useGetStayListQuery } from '@/hooks';
 
 const Home = () => {
-  const { data } = useGetStayListQuery();
+  const { data } = useGetStayListQuery({ enabled: false });
 
   return (
     <Layout>

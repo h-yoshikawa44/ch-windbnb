@@ -8,12 +8,9 @@ import { Stay } from '@/models/Stay';
 type Props = Stay;
 
 const StayCard: VFC<Props> = ({
-  city,
-  country,
   superHost,
   title,
   rating,
-  maxGuests,
   type,
   beds,
   photo,
