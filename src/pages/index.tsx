@@ -1,16 +1,68 @@
+import { useState, useCallback } from 'react';
 import { GetServerSideProps } from 'next';
 import { css } from '@emotion/react';
 import { QueryClient } from 'react-query';
 import { dehydrate } from 'react-query/hydration';
 import Layout from '@/components/Layout';
+import Logo from '@/components/Logo';
+import SearchBox from '@/components/SearchBox';
 import StayCard from '@/components/StayCard';
+import SearchDrawer from '@/components/SearchDrawer';
 import { stayListPrefetchQuery, useGetStayListQuery } from '@/hooks';
 
+type Guests = {
+  adults: number;
+  children: number;
+};
+
 const Home = () => {
-  const { data } = useGetStayListQuery({ enabled: false });
+  const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
+  const handleDrawerOpen = useCallback(() => {
+    setIsDrawerOpen(true);
+  }, []);
+  const handleDrawerClose = useCallback(() => {
+    setIsDrawerOpen(false);
+  }, []);
+
+  const [location, setLocation] = useState<string>('');
+  const [guests, setGuests] = useState<Guests>({
+    adults: 0,
+    children: 0,
+  });
+  const handleSelectLocation = useCallback((selectLocation: string) => {
+    setLocation(selectLocation);
+  }, []);
+  const handlePlusGuests = useCallback(
+    (prop: keyof Guests) => {
+      console.log('test');
+      console.log(guests);
+      setGuests((prevGuests) => {
+        const calcValue = prevGuests[prop] + 1;
+        return { ...guests, [prop]: calcValue };
+      });
+    },
+    [guests]
+  );
+  const handleMinusGuests = useCallback(
+    (prop: keyof Guests) => {
+      setGuests((prevGuests) => {
+        const calcValue = prevGuests[prop] - 1;
+        return { ...guests, [prop]: calcValue };
+      });
+    },
+    [guests]
+  );
+
+  const { data } = useGetStayListQuery();
 
   return (
     <Layout>
+      <header css={header}>
+        <h1>
+          <Logo />
+        </h1>
+        <SearchBox onClick={handleDrawerOpen} />
+      </header>
       <main>
         <div css={subHeader}>
           <h2 css={pageTitle}>Stays in Finland</h2>
@@ -35,6 +87,15 @@ const Home = () => {
           })}
         </div>
       </main>
+      <SearchDrawer
+        open={isDrawerOpen}
+        location={location}
+        guests={guests}
+        onClose={handleDrawerClose}
+        onSelectLocation={handleSelectLocation}
+        onPlusGuests={handlePlusGuests}
+        onMinusGuests={handleMinusGuests}
+      />
     </Layout>
   );
 };
@@ -50,6 +111,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     },
   };
 };
+
+const header = css`
+  display: flex;
+  justify-content: space-between;
+  padding-top: 32px;
+`;
 
 const subHeader = css`
   display: flex;

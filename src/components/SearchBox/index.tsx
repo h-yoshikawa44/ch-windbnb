@@ -7,7 +7,11 @@ type Props = ComponentPropsWithRef<'div'>;
 const SearchBox: VFC<Props> = ({ ...props }) => {
   return (
     <div css={searchBox} {...props}>
-      <input css={searchBoxInput} placeholder="Add location" />
+      <input
+        css={searchBoxInput}
+        placeholder="Add location"
+        onClick={props.onClick}
+      />
       <input css={searchBoxInput} placeholder="Add guests" />
       <button css={searchButton}>
         <Search css={searchButtonIcon} size={18} />
