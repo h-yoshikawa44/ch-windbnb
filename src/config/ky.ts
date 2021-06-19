@@ -1,6 +1,6 @@
 import { Options } from 'ky';
 
 export const DEFAULT_API_OPTIONS: Options = {
-  prefixUrl: '/api/',
+  prefixUrl: '/api',
   retry: 0,
 };

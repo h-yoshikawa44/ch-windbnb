@@ -11,13 +11,13 @@ const useStaySearchForm = () => {
     adults: 0,
     children: 0,
   });
+
   const handleSelectLocation = useCallback((selectLocation: string) => {
     setLocation(selectLocation);
   }, []);
+
   const handlePlusGuests = useCallback(
     (prop: keyof Guests) => {
-      console.log('test');
-      console.log(guests);
       setGuests((prevGuests) => {
         const calcValue = prevGuests[prop] + 1;
         return { ...guests, [prop]: calcValue };
@@ -25,6 +25,7 @@ const useStaySearchForm = () => {
     },
     [guests]
   );
+
   const handleMinusGuests = useCallback(
     (prop: keyof Guests) => {
       setGuests((prevGuests) => {

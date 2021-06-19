@@ -6,11 +6,12 @@ import { Guests } from '@/hooks/stay';
 type Props = {
   location: string;
   guests: Guests;
+  onSearch: (ev: React.FormEvent<HTMLFormElement>) => void;
 };
 
-const SearchBox: VFC<Props> = ({ location, guests }) => {
+const SearchBox: VFC<Props> = ({ location, guests, onSearch }) => {
   return (
-    <div css={searchBox}>
+    <form css={searchBox} onSubmit={onSearch}>
       <div css={searchInputBox}>
         <label>
           <span css={searchInputLabel}>LOCATION</span>
@@ -33,10 +34,10 @@ const SearchBox: VFC<Props> = ({ location, guests }) => {
           />
         </label>
       </div>
-      <button css={searchButton}>
+      <button css={searchButton} type="submit">
         <Search css={searchButtonIcon} size={18} />
       </button>
-    </div>
+    </form>
   );
 };
 
@@ -80,6 +81,7 @@ const searchInput = css`
 
 const searchButton = css`
   padding: 16px;
+  cursor: pointer;
   background-color: #fff;
   border: none;
 `;

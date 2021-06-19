@@ -5,7 +5,7 @@ import { QueryClient } from 'react-query';
 import { dehydrate } from 'react-query/hydration';
 import Layout from '@/components/Layout';
 import Logo from '@/components/Logo';
-import SearchBox from '@/components/SearchBox';
+import MiniSearchBox from '@/components/MiniSearchBox';
 import StayCard from '@/components/StayCard';
 import SearchDrawer from '@/components/SearchDrawer';
 import { stayListPrefetchQuery, useGetStayListQuery } from '@/hooks/stay';
@@ -28,7 +28,18 @@ const Home = () => {
     handleMinusGuests,
   } = useStaySearchForm();
 
-  const { data } = useGetStayListQuery();
+  const { data, refetch } = useGetStayListQuery(
+    { location: location, guests: guests },
+    { enabled: false }
+  );
+
+  const handleSearch = useCallback(
+    (ev: React.FormEvent<HTMLFormElement>) => {
+      ev.preventDefault();
+      refetch();
+    },
+    [refetch]
+  );
 
   return (
     <Layout>
@@ -36,7 +47,12 @@ const Home = () => {
         <h1>
           <Logo />
         </h1>
-        <SearchBox onClick={handleDrawerOpen} />
+        <MiniSearchBox
+          location={location}
+          guests={guests}
+          onDrawerOpen={handleDrawerOpen}
+          onSearch={handleSearch}
+        />
       </header>
       <main>
         <div css={subHeader}>
@@ -70,6 +86,7 @@ const Home = () => {
         onSelectLocation={handleSelectLocation}
         onPlusGuests={handlePlusGuests}
         onMinusGuests={handleMinusGuests}
+        onSearch={handleSearch}
       />
     </Layout>
   );

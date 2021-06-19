@@ -16,6 +16,7 @@ type Props = ComponentPropsWithRef<'div'> & {
   onSelectLocation: (selectLocation: string) => void;
   onPlusGuests: (prop: keyof Guests) => void;
   onMinusGuests: (prop: keyof Guests) => void;
+  onSearch: (ev: React.FormEvent<HTMLFormElement>) => void;
 };
 
 const SearchDrawer: FC<Props> = ({
@@ -26,13 +27,14 @@ const SearchDrawer: FC<Props> = ({
   onSelectLocation,
   onPlusGuests,
   onMinusGuests,
+  onSearch,
 }) => {
   return (
     <Drawer open={open}>
       <Backdrop open={open} onClick={onClose} />
       <div css={[drawerContent, container, !open && hiddenVisibility]}>
         <div css={searchBoxMargin}>
-          <SearchBox location={location} guests={guests} />
+          <SearchBox location={location} guests={guests} onSearch={onSearch} />
         </div>
         <div css={searchContentBox}>
           <SelectLocationList onSelectLocation={onSelectLocation} />

@@ -1,22 +1,43 @@
 import { VFC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
 import { Search } from '@emotion-icons/material-rounded/Search';
+import { Guests } from '@/hooks/stay';
 
-type Props = ComponentPropsWithRef<'div'>;
+type Props = ComponentPropsWithRef<'form'> & {
+  location: string;
+  guests: Guests;
+  onDrawerOpen: VoidFunction;
+  onSearch: (ev: React.FormEvent<HTMLFormElement>) => void;
+};
 
-const SearchBox: VFC<Props> = ({ ...props }) => {
+const MiniSearchBox: VFC<Props> = ({
+  location,
+  guests,
+  onDrawerOpen,
+  onSearch,
+  ...props
+}) => {
+  const guestsNum = guests.adults + guests.children;
   return (
-    <div css={searchBox} {...props}>
+    <form css={searchBox} {...props} onSubmit={onSearch}>
       <input
         css={searchBoxInput}
         placeholder="Add location"
-        onClick={props.onClick}
+        value={location}
+        readOnly
+        onClick={onDrawerOpen}
       />
-      <input css={searchBoxInput} placeholder="Add guests" />
-      <button css={searchButton}>
+      <input
+        css={searchBoxInput}
+        placeholder="Add guests"
+        value={guestsNum === 0 ? '' : guestsNum}
+        readOnly
+        onClick={onDrawerOpen}
+      />
+      <button css={searchButton} type="submit">
         <Search css={searchButtonIcon} size={18} />
       </button>
-    </div>
+    </form>
   );
 };
 
@@ -58,4 +79,4 @@ const searchButtonIcon = css`
   color: #eb5757;
 `;
 
-export default SearchBox;
+export default MiniSearchBox;
