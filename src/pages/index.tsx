@@ -1,16 +1,59 @@
+import { useState, useCallback } from 'react';
 import { GetServerSideProps } from 'next';
 import { css } from '@emotion/react';
 import { QueryClient } from 'react-query';
 import { dehydrate } from 'react-query/hydration';
 import Layout from '@/components/Layout';
+import Logo from '@/components/Logo';
+import MiniSearchBox from '@/components/MiniSearchBox';
 import StayCard from '@/components/StayCard';
-import { stayListPrefetchQuery, useGetStayListQuery } from '@/hooks';
+import SearchDrawer from '@/components/SearchDrawer';
+import { stayListPrefetchQuery, useGetStayListQuery } from '@/hooks/stay';
+import { useStaySearchForm } from '@/hooks/stay';
 
 const Home = () => {
-  const { data } = useGetStayListQuery({ enabled: false });
+  const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
+  const handleDrawerOpen = useCallback(() => {
+    setIsDrawerOpen(true);
+  }, []);
+  const handleDrawerClose = useCallback(() => {
+    setIsDrawerOpen(false);
+  }, []);
+
+  const {
+    location,
+    guests,
+    handleSelectLocation,
+    handlePlusGuests,
+    handleMinusGuests,
+  } = useStaySearchForm();
+
+  const { data, refetch } = useGetStayListQuery(
+    { location: location, guests: guests },
+    { enabled: false }
+  );
+
+  const handleSearch = useCallback(
+    (ev: React.FormEvent<HTMLFormElement>) => {
+      ev.preventDefault();
+      refetch();
+    },
+    [refetch]
+  );
 
   return (
     <Layout>
+      <header css={header}>
+        <h1>
+          <Logo />
+        </h1>
+        <MiniSearchBox
+          location={location}
+          guests={guests}
+          onDrawerOpen={handleDrawerOpen}
+          onSearch={handleSearch}
+        />
+      </header>
       <main>
         <div css={subHeader}>
           <h2 css={pageTitle}>Stays in Finland</h2>
@@ -35,6 +78,16 @@ const Home = () => {
           })}
         </div>
       </main>
+      <SearchDrawer
+        open={isDrawerOpen}
+        location={location}
+        guests={guests}
+        onClose={handleDrawerClose}
+        onSelectLocation={handleSelectLocation}
+        onPlusGuests={handlePlusGuests}
+        onMinusGuests={handleMinusGuests}
+        onSearch={handleSearch}
+      />
     </Layout>
   );
 };
@@ -50,6 +103,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     },
   };
 };
+
+const header = css`
+  display: flex;
+  justify-content: space-between;
+  padding-top: 32px;
+`;
 
 const subHeader = css`
   display: flex;
