@@ -8,12 +8,8 @@ import Logo from '@/components/Logo';
 import SearchBox from '@/components/SearchBox';
 import StayCard from '@/components/StayCard';
 import SearchDrawer from '@/components/SearchDrawer';
-import { stayListPrefetchQuery, useGetStayListQuery } from '@/hooks';
-
-type Guests = {
-  adults: number;
-  children: number;
-};
+import { stayListPrefetchQuery, useGetStayListQuery } from '@/hooks/stay';
+import { useStaySearchForm } from '@/hooks/stay';
 
 const Home = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
@@ -24,34 +20,13 @@ const Home = () => {
     setIsDrawerOpen(false);
   }, []);
 
-  const [location, setLocation] = useState<string>('');
-  const [guests, setGuests] = useState<Guests>({
-    adults: 0,
-    children: 0,
-  });
-  const handleSelectLocation = useCallback((selectLocation: string) => {
-    setLocation(selectLocation);
-  }, []);
-  const handlePlusGuests = useCallback(
-    (prop: keyof Guests) => {
-      console.log('test');
-      console.log(guests);
-      setGuests((prevGuests) => {
-        const calcValue = prevGuests[prop] + 1;
-        return { ...guests, [prop]: calcValue };
-      });
-    },
-    [guests]
-  );
-  const handleMinusGuests = useCallback(
-    (prop: keyof Guests) => {
-      setGuests((prevGuests) => {
-        const calcValue = prevGuests[prop] - 1;
-        return { ...guests, [prop]: calcValue };
-      });
-    },
-    [guests]
-  );
+  const {
+    location,
+    guests,
+    handleSelectLocation,
+    handlePlusGuests,
+    handleMinusGuests,
+  } = useStaySearchForm();
 
   const { data } = useGetStayListQuery();
 

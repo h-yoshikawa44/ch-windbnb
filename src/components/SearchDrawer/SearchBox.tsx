@@ -1,11 +1,7 @@
 import { VFC } from 'react';
 import { css } from '@emotion/react';
 import { Search } from '@emotion-icons/material-rounded/Search';
-
-type Guests = {
-  adults: number;
-  children: number;
-};
+import { Guests } from '@/hooks/stay';
 
 type Props = {
   location: string;

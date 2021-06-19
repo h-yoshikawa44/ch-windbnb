@@ -3,13 +3,13 @@ import { css } from '@emotion/react';
 
 type ItemProps = {
   value: string;
-  onClick: (selectLocation: string) => void;
+  onSelectLocation: (selectLocation: string) => void;
 };
 
-const SelectLocationItem: FC<ItemProps> = ({ value, onClick }) => {
+const SelectLocationItem: FC<ItemProps> = ({ value, onSelectLocation }) => {
   return (
     <li>
-      <button css={searchLocationItem} onClick={() => onClick(value)}>
+      <button css={searchLocationItem} onClick={() => onSelectLocation(value)}>
         {value}
       </button>
     </li>
@@ -49,7 +49,7 @@ const SelectLocationList: VFC<Props> = ({ onSelectLocation }) => {
           <SelectLocationItem
             key={`${index}-${location}`}
             value={location}
-            onClick={onSelectLocation}
+            onSelectLocation={onSelectLocation}
           />
         );
       })}

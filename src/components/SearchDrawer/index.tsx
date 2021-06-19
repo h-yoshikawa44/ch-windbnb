@@ -6,11 +6,7 @@ import Backdrop from '@/components/SearchDrawer/Backdrop';
 import SearchBox from '@/components/SearchDrawer/SearchBox';
 import SelectLocationList from '@/components/SearchDrawer/SelectLocationList';
 import CalcGuests from '@/components/SearchDrawer/CalcGuests';
-
-type Guests = {
-  adults: number;
-  children: number;
-};
+import { Guests } from '@/hooks/stay';
 
 type Props = ComponentPropsWithRef<'div'> & {
   open: boolean;
