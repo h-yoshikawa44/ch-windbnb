@@ -65,9 +65,11 @@ const searchGuestCalcButton = css`
   background-color: #fff;
   border: 1px solid #828282;
   border-radius: 4px;
+  outline: none;
   transition: background-color 0.3s;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: rgba(0, 0, 0, 0.04);
   }
 `;

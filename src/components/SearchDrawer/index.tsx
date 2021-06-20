@@ -1,4 +1,10 @@
-import { FC, ComponentPropsWithRef, MouseEventHandler } from 'react';
+import {
+  FC,
+  ComponentPropsWithRef,
+  MouseEventHandler,
+  useState,
+  useCallback,
+} from 'react';
 import { css } from '@emotion/react';
 import { Search } from '@emotion-icons/material-rounded/Search';
 import Drawer from '@/components/SearchDrawer/Drawer';
@@ -7,6 +13,8 @@ import SearchBox from '@/components/SearchDrawer/SearchBox';
 import SelectLocationList from '@/components/SearchDrawer/SelectLocationList';
 import CalcGuests from '@/components/SearchDrawer/CalcGuests';
 import { Guests } from '@/hooks/stay';
+
+type Tab = 'location' | 'guests';
 
 type Props = ComponentPropsWithRef<'div'> & {
   open: boolean;
@@ -29,21 +37,36 @@ const SearchDrawer: FC<Props> = ({
   onMinusGuests,
   onSearch,
 }) => {
+  const [tab, setTab] = useState<Tab>('location');
+  const handleSelectTab = useCallback((tabType: Tab) => {
+    setTab(tabType);
+  }, []);
+
   return (
     <Drawer open={open}>
       <Backdrop open={open} onClick={onClose} />
       <div css={[drawerContent, container, !open && hiddenVisibility]}>
         <div css={searchBoxMargin}>
-          <SearchBox location={location} guests={guests} onSearch={onSearch} />
+          <SearchBox
+            tab={tab}
+            location={location}
+            guests={guests}
+            onTabChange={handleSelectTab}
+            onSearch={onSearch}
+          />
         </div>
         <div css={searchContentBox}>
-          <SelectLocationList onSelectLocation={onSelectLocation} />
-          <CalcGuests
-            adultsNum={guests.adults}
-            childrenNum={guests.children}
-            onPlusGuests={onPlusGuests}
-            onMinusGuests={onMinusGuests}
-          />
+          <div css={tab !== 'location' && hiddenVisibility}>
+            <SelectLocationList onSelectLocation={onSelectLocation} />
+          </div>
+          <div css={tab !== 'guests' && hiddenVisibility}>
+            <CalcGuests
+              adultsNum={guests.adults}
+              childrenNum={guests.children}
+              onPlusGuests={onPlusGuests}
+              onMinusGuests={onMinusGuests}
+            />
+          </div>
           <div />
         </div>
       </div>
