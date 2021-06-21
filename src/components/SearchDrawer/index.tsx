@@ -40,7 +40,7 @@ const SearchDrawer: FC<Props> = ({
   return (
     <Drawer id="search-drawer-menu" open={open} onClose={onClose}>
       <div css={[drawerContent, container, !open && hiddenVisibility]}>
-        <div css={[drawerHeader, mobileDisplay]}>
+        <div css={drawerHeader}>
           <p css={drawerHeaderText}>Edit your search</p>
           <button css={drawerCloseButton} onClick={onClose}>
             <Close size={50} />
@@ -104,7 +104,7 @@ const SearchDrawer: FC<Props> = ({
             </div>
             <div />
           </div>
-          <div css={[mobileSearchButton, mobileDisplay]}>
+          <div css={mobileSearchButton}>
             <SearchButton type="submit">Search</SearchButton>
           </div>
         </form>
@@ -147,19 +147,15 @@ const desktopDisplay = css`
   }
 `;
 
-const mobileDisplay = css`
+const drawerHeader = css`
   display: none;
+  margin-top: 18px;
 
   @media (max-width: 600px) {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
-`;
-
-const drawerHeader = css`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 18px;
 `;
 
 const drawerHeaderText = css`
@@ -236,8 +232,13 @@ const searchContentBox = css`
 `;
 
 const mobileSearchButton = css`
+  display: none;
   width: fit-content;
   margin: 160px auto 40px;
+
+  @media (max-width: 600px) {
+    display: block;
+  }
 `;
 
 export default SearchDrawer;
