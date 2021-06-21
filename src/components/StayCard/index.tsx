@@ -60,14 +60,9 @@ const stayImage = css`
 
 const cartionBlock = css`
   display: flex;
-  align-items: baseline;
-  height: 64px;
-  padding: 16px 0;
-
-  @media (max-width: 600px) {
-    height: 56px;
-    padding: 12px 0;
-  }
+  align-items: center;
+  height: 56px;
+  padding: 12px 0;
 `;
 
 const superHostChipMargin = css`

@@ -1,8 +1,6 @@
 import { VFC } from 'react';
 import { css } from '@emotion/react';
-import { Search } from '@emotion-icons/material-rounded/Search';
 import { Guests } from '@/hooks/stay';
-import { createDarkenColor } from '@/util/color';
 import SearchInput from '@/components/SearchDrawer/SearchInput';
 import SearchButton from '@/components/SearchDrawer/SearchButton';
 

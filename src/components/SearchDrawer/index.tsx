@@ -1,15 +1,7 @@
-import {
-  FC,
-  ComponentPropsWithRef,
-  MouseEventHandler,
-  useState,
-  useCallback,
-} from 'react';
+import { FC, ComponentPropsWithRef, useState, useCallback } from 'react';
 import { css } from '@emotion/react';
 import { Close } from '@emotion-icons/material-rounded/Close';
 import Drawer from '@/components/SearchDrawer/Drawer';
-import Backdrop from '@/components/SearchDrawer/Backdrop';
-import SearchBox from '@/components/SearchDrawer/SearchBox';
 import SearchInput from '@/components/SearchDrawer/SearchInput';
 import SearchButton from '@/components/SearchDrawer/SearchButton';
 import SelectLocationList from '@/components/SearchDrawer/SelectLocationList';
