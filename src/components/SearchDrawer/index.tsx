@@ -43,8 +43,7 @@ const SearchDrawer: FC<Props> = ({
   }, []);
 
   return (
-    <Drawer open={open}>
-      <Backdrop open={open} onClick={onClose} />
+    <Drawer id="search-drawer-menu" open={open} onClose={onClose}>
       <div css={[drawerContent, container, !open && hiddenVisibility]}>
         <div css={searchBoxMargin}>
           <SearchBox

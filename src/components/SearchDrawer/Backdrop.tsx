@@ -12,8 +12,9 @@ const Backdrop: VFC<Props> = ({ open, onClick }) => {
 };
 
 const drawerBackdrop = css`
-  height: 100%;
+  position: fixed;
   background-color: rgba(0, 0, 0, 0.5);
+  inset: 0;
 `;
 
 const hiddenVisibility = css`

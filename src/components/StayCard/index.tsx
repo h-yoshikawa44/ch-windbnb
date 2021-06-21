@@ -17,7 +17,7 @@ const StayCard: VFC<Props> = ({
 }) => {
   const caption = beds ? `${type} . ${beds} beds` : type;
   return (
-    <div>
+    <div css={stayCard} tabIndex={0}>
       <Image
         css={stayImage}
         src={photo}
@@ -26,7 +26,11 @@ const StayCard: VFC<Props> = ({
         height={272}
       />
       <div css={cartionBlock}>
-        {superHost && <SuperHostChip css={customSuperHostChip} />}
+        {superHost && (
+          <div css={superHostChipMargin}>
+            <SuperHostChip />
+          </div>
+        )}
         <div css={captionText}>{caption}</div>
         <Rating css={customRating} value={rating.toFixed(2)} />
       </div>
@@ -35,6 +39,21 @@ const StayCard: VFC<Props> = ({
   );
 };
 
+const stayCard = css`
+  padding: 16px 8px;
+  border-radius: 16px;
+  outline: none;
+
+  &:hover,
+  &:focus {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+
+  @media (max-width: 600px) {
+    padding: 16px 0;
+  }
+`;
+
 const stayImage = css`
   border-radius: 24px;
 `;
@@ -42,10 +61,16 @@ const stayImage = css`
 const cartionBlock = css`
   display: flex;
   align-items: baseline;
+  height: 64px;
   padding: 16px 0;
+
+  @media (max-width: 600px) {
+    height: 56px;
+    padding: 12px 0;
+  }
 `;
 
-const customSuperHostChip = css`
+const superHostChipMargin = css`
   margin-right: 8px;
 `;
 

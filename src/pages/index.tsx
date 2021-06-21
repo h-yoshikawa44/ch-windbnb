@@ -47,12 +47,15 @@ const Home = () => {
         <h1>
           <Logo />
         </h1>
-        <MiniSearchBox
-          location={location}
-          guests={guests}
-          onDrawerOpen={handleDrawerOpen}
-          onSearch={handleSearch}
-        />
+        <div css={searchBoxMargin}>
+          <MiniSearchBox
+            location={location}
+            guests={guests}
+            isDrawerOpen={isDrawerOpen}
+            onDrawerOpen={handleDrawerOpen}
+            onSearch={handleSearch}
+          />
+        </div>
       </header>
       <main>
         <div css={subHeader}>
@@ -107,7 +110,19 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 const header = css`
   display: flex;
   justify-content: space-between;
-  padding-top: 32px;
+  margin-top: 32px;
+
+  @media (max-width: 600px) {
+    display: block;
+    margin-top: 24px;
+  }
+`;
+
+const searchBoxMargin = css`
+  @media (max-width: 600px) {
+    width: fit-content;
+    margin: 32px auto 0;
+  }
 `;
 
 const subHeader = css`
@@ -126,10 +141,14 @@ const pageTitle = css`
 
 const stayCardGrid = css`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  row-gap: 48px;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 32px;
   column-gap: 32px;
   padding-bottom: 40px;
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  }
 `;
 
 export default Home;
