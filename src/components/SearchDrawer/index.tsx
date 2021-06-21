@@ -122,7 +122,6 @@ const drawerContent = css`
 `;
 
 const container = css`
-  max-width: 1280px;
   padding: 0 4%;
   margin: 0 auto;
 `;
