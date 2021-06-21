@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { Fragment, useState, useCallback } from 'react';
 import { GetServerSideProps } from 'next';
 import { css } from '@emotion/react';
 import { QueryClient } from 'react-query';
@@ -42,45 +42,47 @@ const Home = () => {
   );
 
   return (
-    <Layout>
-      <header css={header}>
-        <h1>
-          <Logo />
-        </h1>
-        <div css={searchBoxMargin}>
-          <MiniSearchBox
-            location={location}
-            guests={guests}
-            isDrawerOpen={isDrawerOpen}
-            onDrawerOpen={handleDrawerOpen}
-            onSearch={handleSearch}
-          />
-        </div>
-      </header>
-      <main>
-        <div css={subHeader}>
-          <h2 css={pageTitle}>Stays in Finland</h2>
-          <p>{`${data?.length}+ stays`}</p>
-        </div>
-        <div css={stayCardGrid}>
-          {data?.map((stay, index) => {
-            return (
-              <StayCard
-                key={`${index}-${stay.title}`}
-                city={stay.city}
-                country={stay.country}
-                superHost={stay.superHost}
-                title={stay.title}
-                rating={stay.rating}
-                maxGuests={stay.maxGuests}
-                type={stay.type}
-                beds={stay.beds}
-                photo={stay.photo}
-              />
-            );
-          })}
-        </div>
-      </main>
+    <Fragment>
+      <Layout inertFlg={isDrawerOpen}>
+        <header css={header}>
+          <h1>
+            <Logo />
+          </h1>
+          <div css={searchBoxMargin}>
+            <MiniSearchBox
+              location={location}
+              guests={guests}
+              isDrawerOpen={isDrawerOpen}
+              onDrawerOpen={handleDrawerOpen}
+              onSearch={handleSearch}
+            />
+          </div>
+        </header>
+        <main>
+          <div css={subHeader}>
+            <h2 css={pageTitle}>Stays in Finland</h2>
+            <p>{`${data?.length}+ stays`}</p>
+          </div>
+          <div css={stayCardGrid}>
+            {data?.map((stay, index) => {
+              return (
+                <StayCard
+                  key={`${index}-${stay.title}`}
+                  city={stay.city}
+                  country={stay.country}
+                  superHost={stay.superHost}
+                  title={stay.title}
+                  rating={stay.rating}
+                  maxGuests={stay.maxGuests}
+                  type={stay.type}
+                  beds={stay.beds}
+                  photo={stay.photo}
+                />
+              );
+            })}
+          </div>
+        </main>
+      </Layout>
       <SearchDrawer
         open={isDrawerOpen}
         location={location}
@@ -91,7 +93,7 @@ const Home = () => {
         onMinusGuests={handleMinusGuests}
         onSearch={handleSearch}
       />
-    </Layout>
+    </Fragment>
   );
 };
 
