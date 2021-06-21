@@ -4,7 +4,11 @@ import { css } from '@emotion/react';
 
 const Footer: VFC = () => {
   return (
-    <footer css={footer}>
+    <footer css={[footer, footerText]}>
+      <span>
+        created by <span css={name}>h-yoshikawa44</span> - devChallenges.io
+        |&nbsp;
+      </span>
       <a
         href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
         target="_blank"
@@ -26,12 +30,17 @@ const footer = css`
   width: 100%;
   height: 100px;
   border-top: 1px solid #eaeaea;
-  a {
-    display: flex;
-    flex-grow: 1;
-    align-items: center;
-    justify-content: center;
-  }
+`;
+
+const footerText = css`
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+`;
+
+const name = css`
+  font-weight: 700;
 `;
 
 const logo = css`

@@ -3,7 +3,11 @@ import Head from 'next/head';
 import { css } from '@emotion/react';
 import Footer from '@/components/Footer';
 
-const Layout: FC = ({ children }) => {
+type Props = {
+  inertFlg: boolean;
+};
+
+const Layout: FC<Props> = ({ inertFlg, children }) => {
   return (
     <div>
       <Head>
@@ -14,7 +18,15 @@ const Layout: FC = ({ children }) => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div css={container}>
+      <div
+        css={container}
+        ref={(node) =>
+          node &&
+          (inertFlg
+            ? node.setAttribute('inert', '')
+            : node.removeAttribute('inert'))
+        }
+      >
         {children}
         <Footer />
       </div>

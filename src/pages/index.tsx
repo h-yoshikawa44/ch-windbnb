@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { Fragment, useState, useCallback } from 'react';
 import { GetServerSideProps } from 'next';
 import { css } from '@emotion/react';
 import { QueryClient } from 'react-query';
@@ -42,42 +42,47 @@ const Home = () => {
   );
 
   return (
-    <Layout>
-      <header css={header}>
-        <h1>
-          <Logo />
-        </h1>
-        <MiniSearchBox
-          location={location}
-          guests={guests}
-          onDrawerOpen={handleDrawerOpen}
-          onSearch={handleSearch}
-        />
-      </header>
-      <main>
-        <div css={subHeader}>
-          <h2 css={pageTitle}>Stays in Finland</h2>
-          <p>{`${data?.length}+ stays`}</p>
-        </div>
-        <div css={stayCardGrid}>
-          {data?.map((stay, index) => {
-            return (
-              <StayCard
-                key={`${index}-${stay.title}`}
-                city={stay.city}
-                country={stay.country}
-                superHost={stay.superHost}
-                title={stay.title}
-                rating={stay.rating}
-                maxGuests={stay.maxGuests}
-                type={stay.type}
-                beds={stay.beds}
-                photo={stay.photo}
-              />
-            );
-          })}
-        </div>
-      </main>
+    <Fragment>
+      <Layout inertFlg={isDrawerOpen}>
+        <header css={header}>
+          <h1>
+            <Logo />
+          </h1>
+          <div css={searchBoxMargin}>
+            <MiniSearchBox
+              location={location}
+              guests={guests}
+              isDrawerOpen={isDrawerOpen}
+              onDrawerOpen={handleDrawerOpen}
+              onSearch={handleSearch}
+            />
+          </div>
+        </header>
+        <main>
+          <div css={subHeader}>
+            <h2 css={pageTitle}>Stays in Finland</h2>
+            <p>{`${data?.length}+ stays`}</p>
+          </div>
+          <div css={stayCardGrid}>
+            {data?.map((stay, index) => {
+              return (
+                <StayCard
+                  key={`${index}-${stay.title}`}
+                  city={stay.city}
+                  country={stay.country}
+                  superHost={stay.superHost}
+                  title={stay.title}
+                  rating={stay.rating}
+                  maxGuests={stay.maxGuests}
+                  type={stay.type}
+                  beds={stay.beds}
+                  photo={stay.photo}
+                />
+              );
+            })}
+          </div>
+        </main>
+      </Layout>
       <SearchDrawer
         open={isDrawerOpen}
         location={location}
@@ -88,7 +93,7 @@ const Home = () => {
         onMinusGuests={handleMinusGuests}
         onSearch={handleSearch}
       />
-    </Layout>
+    </Fragment>
   );
 };
 
@@ -107,7 +112,19 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 const header = css`
   display: flex;
   justify-content: space-between;
-  padding-top: 32px;
+  margin-top: 32px;
+
+  @media (max-width: 600px) {
+    display: block;
+    margin-top: 24px;
+  }
+`;
+
+const searchBoxMargin = css`
+  @media (max-width: 600px) {
+    width: fit-content;
+    margin: 32px auto 0;
+  }
 `;
 
 const subHeader = css`
@@ -126,10 +143,14 @@ const pageTitle = css`
 
 const stayCardGrid = css`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  row-gap: 48px;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 32px;
   column-gap: 32px;
   padding-bottom: 40px;
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  }
 `;
 
 export default Home;

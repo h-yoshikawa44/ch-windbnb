@@ -17,6 +17,7 @@ const superHostChip = css`
   font-size: 12px;
   font-weight: bold;
   line-height: 15px;
+  white-space: nowrap;
   border: 1px solid #4f4f4f;
   border-radius: 12px;
 `;

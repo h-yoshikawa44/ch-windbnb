@@ -26,11 +26,19 @@ const CalcBox: VFC<BoxProps> = ({
       <p css={searchGuestTitle}>{title}</p>
       <span css={searchGuestCaption}>{caption}</span>
       <div css={searchGuestCalcBox}>
-        <button css={searchGuestCalcButton} onClick={() => onMinusGuests(type)}>
+        <button
+          css={searchGuestCalcButton}
+          type="button"
+          onClick={() => onMinusGuests(type)}
+        >
           <Remove css={searchGuestCalcIcon} size={12} />
         </button>
         <span css={searchGuestNum}>{num}</span>
-        <button css={searchGuestCalcButton} onClick={() => onPlusGuests(type)}>
+        <button
+          css={searchGuestCalcButton}
+          type="button"
+          onClick={() => onPlusGuests(type)}
+        >
           <Add css={searchGuestCalcIcon} size={12} />
         </button>
       </div>
@@ -65,9 +73,11 @@ const searchGuestCalcButton = css`
   background-color: #fff;
   border: 1px solid #828282;
   border-radius: 4px;
+  outline: none;
   transition: background-color 0.3s;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: rgba(0, 0, 0, 0.04);
   }
 `;
@@ -123,7 +133,7 @@ const CalcGuests: VFC<Props> = ({
 const searchGuestBox = css`
   display: grid;
   row-gap: 48px;
-  padding: 0 24px;
+  padding: 18px 24px;
 `;
 
 export default CalcGuests;

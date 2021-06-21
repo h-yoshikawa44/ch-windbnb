@@ -1,5 +1,6 @@
 import { FC, VFC } from 'react';
 import { css } from '@emotion/react';
+import { Room } from '@emotion-icons/material-rounded/Room';
 
 type ItemProps = {
   value: string;
@@ -9,12 +10,24 @@ type ItemProps = {
 const SelectLocationItem: FC<ItemProps> = ({ value, onSelectLocation }) => {
   return (
     <li>
-      <button css={searchLocationItem} onClick={() => onSelectLocation(value)}>
+      <button
+        css={searchLocationItem}
+        type="button"
+        onClick={() => onSelectLocation(value)}
+      >
+        <Room css={icon} size={18} />
         {value}
       </button>
     </li>
   );
 };
+
+const icon = css`
+  display: inline;
+  margin-right: 8px;
+  color: #4f4f4f;
+  vertical-align: text-bottom;
+`;
 
 const searchLocationItem = css`
   width: 100%;
@@ -23,9 +36,11 @@ const searchLocationItem = css`
   cursor: pointer;
   background-color: #fff;
   border: none;
+  outline: none;
   transition: background-color 0.3s;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: rgba(0, 0, 0, 0.04);
   }
 `;

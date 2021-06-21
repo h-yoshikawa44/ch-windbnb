@@ -4,6 +4,7 @@ import { Global } from '@emotion/react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Hydrate } from 'react-query/hydration';
 import { ReactQueryDevtools } from 'react-query/devtools';
+import 'wicg-inert';
 import { globalStyle } from '@/styles/globals';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {

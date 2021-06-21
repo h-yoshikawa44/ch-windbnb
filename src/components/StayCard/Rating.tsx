@@ -8,12 +8,16 @@ type Props = ComponentPropsWithRef<'div'> & {
 
 const Rating: VFC<Props> = ({ value, ...props }) => {
   return (
-    <div {...props}>
+    <div css={rating} {...props}>
       <Star css={icon} size={18} />
       <span css={ratingValue}>{value}</span>
     </div>
   );
 };
+
+const rating = css`
+  white-space: nowrap;
+`;
 
 const icon = css`
   color: #eb5757;
