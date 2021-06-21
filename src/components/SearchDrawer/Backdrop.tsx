@@ -5,9 +5,13 @@ type Props = ComponentPropsWithRef<'div'> & {
   open: boolean;
 };
 
-const Backdrop: VFC<Props> = ({ open, onClick }) => {
+const Backdrop: VFC<Props> = ({ open, onClick, ...props }) => {
   return (
-    <div css={[drawerBackdrop, !open && hiddenVisibility]} onClick={onClick} />
+    <div
+      css={[drawerBackdrop, !open && hiddenVisibility]}
+      onClick={onClick}
+      {...props}
+    />
   );
 };
 

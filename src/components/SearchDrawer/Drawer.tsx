@@ -7,9 +7,9 @@ type Props = ComponentPropsWithRef<'div'> & {
   onClose: MouseEventHandler<HTMLDivElement>;
 };
 
-const Drawer: FC<Props> = ({ open, onClose, children }) => {
+const Drawer: FC<Props> = ({ open, onClose, children, ...props }) => {
   return (
-    <div css={[searchDrawer, !open && hiddenVisibility]}>
+    <div css={[searchDrawer, !open && hiddenVisibility]} {...props}>
       <Backdrop open={open} onClick={onClose} />
       <div css={[!open && hiddenVisibility, drawerAnimation(open)]}>
         {children}
