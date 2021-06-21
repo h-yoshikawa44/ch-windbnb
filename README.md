@@ -12,10 +12,10 @@
       Demo
     </a>
     <span> | </span>
-    <!-- <a href="https://{your-url-to-the-solution}">
+    <a href="https://devchallenges.io/solutions/ftLx16ngH2CDg6hFPU76">
       Solution
     </a>
-    <span> | </span> -->
+    <span> | </span>
     <a href="https://devchallenges.io/challenges/3JFYedSOZqAxYuOCNmYD">
       Challenge
     </a>
@@ -43,12 +43,16 @@
 ### Desktop
 ![overview - desktop](/screenshots/desktop.png)
 
+---
+
 ![overview - desktop-drawer](/screenshots/desktop-drawer.png)
 
 ### Mobile
-![overview - mobile](/screenshots/mobile.png)
+<img src="/screenshots/mobile.png" alt="overview - mobile" width="35%">
 
-![overview - mobile-drawer](/screenshots/mobile-drawer.png)
+---
+
+<img src="/screenshots/mobile-drawer.png" alt="overview - mobile-drawer" width="35%">
 
 A page with a simple search function has been created.
 
