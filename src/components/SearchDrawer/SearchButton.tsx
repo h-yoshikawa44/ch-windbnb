@@ -15,7 +15,7 @@ const SearchButton: FC<Props> = ({ children, ...props }) => {
 };
 
 const searchButton = css`
-  padding: 16px;
+  padding: 16px 24px;
   color: #fff;
   cursor: pointer;
   background-color: #eb5757;

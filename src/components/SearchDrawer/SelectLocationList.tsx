@@ -10,7 +10,11 @@ type ItemProps = {
 const SelectLocationItem: FC<ItemProps> = ({ value, onSelectLocation }) => {
   return (
     <li>
-      <button css={searchLocationItem} onClick={() => onSelectLocation(value)}>
+      <button
+        css={searchLocationItem}
+        type="button"
+        onClick={() => onSelectLocation(value)}
+      >
         <Room css={icon} size={18} />
         {value}
       </button>
