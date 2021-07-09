@@ -21,13 +21,16 @@ const searchButton = css`
   background-color: #eb5757;
   border: none;
   border-radius: 16px;
-  outline: none;
   transition: background-color 0.3s;
 
   &:hover,
   &:focus {
     /* stylelint-disable-next-line function-name-case */
     background-color: ${createDarkenColor('#eb5757', '20%')};
+  }
+
+  &:focus:not(.focus-visible) {
+    outline: none;
   }
 `;
 

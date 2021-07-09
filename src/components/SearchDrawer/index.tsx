@@ -43,7 +43,7 @@ const SearchDrawer: FC<Props> = ({
         <div css={drawerHeader}>
           <p css={drawerHeaderText}>Edit your search</p>
           <button css={drawerCloseButton} onClick={onClose}>
-            <Close size={50} />
+            <Close size={18} />
           </button>
         </div>
         <form onSubmit={onSearch}>
@@ -147,14 +147,10 @@ const desktopDisplay = css`
 `;
 
 const drawerHeader = css`
-  display: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-top: 18px;
-
-  @media (max-width: 600px) {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
 `;
 
 const drawerHeaderText = css`
@@ -168,25 +164,28 @@ const drawerCloseButton = css`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 40px;
+  height: 40px;
   padding: 0;
   cursor: pointer;
   background-color: #fff;
   border: none;
-  outline: none;
 
   &:hover,
   &:focus {
     background-color: rgba(0, 0, 0, 0.04);
     border-radius: 16px;
   }
+
+  &:focus:not(.focus-visible) {
+    outline: none;
+  }
 `;
 
 const searchBox = css`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  margin-top: 88px;
+  margin-top: 48px;
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
@@ -206,11 +205,15 @@ const searchInputBox = css`
   pointer-events: auto;
   cursor: pointer;
   border-right: 1px solid #f2f2f2;
-  outline: none;
 
+  &:hover,
   &:focus,
   &:focus-within {
     background-color: rgba(0, 0, 0, 0.04);
+  }
+
+  &:focus:not(.focus-visible) {
+    outline: none;
   }
 `;
 

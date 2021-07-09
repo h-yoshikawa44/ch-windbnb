@@ -80,7 +80,6 @@ const searchBoxInput = css`
   line-height: 18px;
   cursor: pointer;
   border: none;
-  outline: none;
 
   ::placeholder {
     color: #bdbdbd;
@@ -89,6 +88,10 @@ const searchBoxInput = css`
   &:hover,
   &:focus {
     background-color: rgba(0, 0, 0, 0.04);
+  }
+
+  &:focus:not(.focus-visible) {
+    outline: none;
   }
 `;
 
@@ -110,12 +113,15 @@ const searchButton = css`
   background-color: #fff;
   border: none;
   border-radius: 0 16px 16px 0;
-  outline: none;
 
   &:hover,
   &:focus {
     /* stylelint-disable-next-line function-name-case */
     background-color: ${createRGBAColor('#eb5757', 0.1)};
+  }
+
+  &:focus:not(.focus-visible) {
+    outline: none;
   }
 `;
 
