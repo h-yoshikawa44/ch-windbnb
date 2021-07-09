@@ -16,7 +16,6 @@ const Layout: FC<Props> = ({ inertFlg, children }) => {
           name="description"
           content="devChallenges.io - Windbnb | by h-yoshikawa44"
         />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <div
         css={container}
