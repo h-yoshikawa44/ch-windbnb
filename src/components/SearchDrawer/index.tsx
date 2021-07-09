@@ -2,6 +2,7 @@ import { FC, ComponentPropsWithRef, useState, useCallback } from 'react';
 import { css } from '@emotion/react';
 import { Close } from '@emotion-icons/material-rounded/Close';
 import Drawer from '@/components/SearchDrawer/Drawer';
+import ClearButton from '@/components/SearchDrawer/ClearButton';
 import SearchInput from '@/components/SearchDrawer/SearchInput';
 import SearchButton from '@/components/SearchDrawer/SearchButton';
 import SelectLocationList from '@/components/SearchDrawer/SelectLocationList';
@@ -20,6 +21,7 @@ type Props = ComponentPropsWithRef<'div'> & {
   onPlusGuests: (prop: keyof Guests) => void;
   onMinusGuests: (prop: keyof Guests) => void;
   onSearch: (ev: React.FormEvent<HTMLFormElement>) => void;
+  onClear: VoidFunction;
 };
 
 const SearchDrawer: FC<Props> = ({
@@ -31,6 +33,7 @@ const SearchDrawer: FC<Props> = ({
   onPlusGuests,
   onMinusGuests,
   onSearch,
+  onClear,
 }) => {
   const [tab, setTab] = useState<Tab>('location');
   const handleSelectTab = useCallback((tabType: Tab) => {
@@ -42,6 +45,7 @@ const SearchDrawer: FC<Props> = ({
       <div css={[drawerContent, container, !open && hiddenVisibility]}>
         <div css={drawerHeader}>
           <p css={drawerHeaderText}>Edit your search</p>
+          <ClearButton onClick={onClear} />
           <button css={drawerCloseButton} onClick={onClose}>
             <Close size={18} />
           </button>
@@ -149,11 +153,11 @@ const desktopDisplay = css`
 const drawerHeader = css`
   display: flex;
   align-items: center;
-  justify-content: space-between;
   margin-top: 18px;
 `;
 
 const drawerHeaderText = css`
+  flex: 1;
   font-family: Mulish, sans-serif;
   font-size: 12px;
   font-weight: bold;

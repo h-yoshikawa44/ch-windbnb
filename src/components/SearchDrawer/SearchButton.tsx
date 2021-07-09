@@ -16,6 +16,10 @@ const SearchButton: FC<Props> = ({ children, ...props }) => {
 
 const searchButton = css`
   padding: 16px 24px;
+  font-family: Mulish, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 18px;
   color: #fff;
   cursor: pointer;
   background-color: #eb5757;

@@ -37,12 +37,18 @@ const useStaySearchForm = () => {
     [guests]
   );
 
+  const handleClear = useCallback(() => {
+    setLocation('');
+    setGuests({ adults: 0, children: 0 });
+  }, []);
+
   return {
     location,
     guests,
     handleSelectLocation,
     handlePlusGuests,
     handleMinusGuests,
+    handleClear,
   };
 };
 

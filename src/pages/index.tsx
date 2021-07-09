@@ -26,6 +26,7 @@ const Home = () => {
     handleSelectLocation,
     handlePlusGuests,
     handleMinusGuests,
+    handleClear,
   } = useStaySearchForm();
 
   const { data, refetch } = useGetStayListQuery(
@@ -37,6 +38,7 @@ const Home = () => {
     (ev: React.FormEvent<HTMLFormElement>) => {
       ev.preventDefault();
       refetch();
+      setIsDrawerOpen(false);
     },
     [refetch]
   );
@@ -92,6 +94,7 @@ const Home = () => {
         onPlusGuests={handlePlusGuests}
         onMinusGuests={handleMinusGuests}
         onSearch={handleSearch}
+        onClear={handleClear}
       />
     </Fragment>
   );
