@@ -74,6 +74,7 @@ Other major libraries
 - [csx](https://typestyle.github.io/#/colors)
 - [ky](https://github.com/sindresorhus/ky)
 - [React Query](https://react-query.tanstack.com/)
+- [focus-visible](https://github.com/WICG/focus-visible)
 - [wicg-inert](https://github.com/WICG/inert)
 
 ## Features
@@ -116,6 +117,7 @@ $ yarn dev
 - How to transpile with `next-transpile-modules` when using ESM libraries in Next.js environment.
 - How to use an external URL in next/image.
 - How to use React Query in the Next.js environment.
+- Difference between auto-fill and auto-fit in Grid Layout.
 
 ## Acknowledgements
 
@@ -130,6 +132,7 @@ $ yarn dev
 - [form 内の button 要素を押すと submit される理由](https://zenn.dev/phi/articles/form-submit-button-type-default)
 - [UIにおける見えるけど利用できない非活性な領域の実装とinert属性について](https://standard.shiftbrain.com/blog/unavailable-inert-regions-and-inert-attribut)
 - [CSSで、button要素とinput要素のテキストを美しく揃えるスタイルシートのテクニック](https://coliss.com/articles/build-websites/operation/css/vertical-text-alignment-in-buttons-and-inputs.html)
+- [CSS Gridを使うならマスターしておきたいauto-fillとauto-fitの違い](https://parashuto.com/rriver/development/cssgrid-autofill-vs-autofit)
 
 ## Contact
 
