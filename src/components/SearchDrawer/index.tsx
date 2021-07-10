@@ -40,17 +40,26 @@ const SearchDrawer: FC<Props> = ({
     setTab(tabType);
   }, []);
 
+  const formId = 'drawer-search-form';
+
   return (
     <Drawer id="search-drawer-menu" open={open} onClose={onClose}>
       <div css={[drawerContent, container, !open && hiddenVisibility]}>
         <div css={drawerHeader}>
           <p css={drawerHeaderText}>Edit your search</p>
-          <ClearButton onClick={onClear} />
+          <ClearButton form={formId} type="reset" />
           <button css={drawerCloseButton} onClick={onClose}>
             <Close size={18} />
           </button>
         </div>
-        <form onSubmit={onSearch}>
+        <form
+          id={formId}
+          onSubmit={onSearch}
+          onReset={(ev) => {
+            ev.preventDefault();
+            onClear();
+          }}
+        >
           <div css={searchBox}>
             <div
               css={[searchInputBox, tab === 'location' && searchInputBoxSelect]}
