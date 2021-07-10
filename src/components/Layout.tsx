@@ -9,7 +9,15 @@ type Props = {
 
 const Layout: FC<Props> = ({ inertFlg, children }) => {
   return (
-    <div>
+    <div
+      css={globalLayout}
+      ref={(node) =>
+        node &&
+        (inertFlg
+          ? node.setAttribute('inert', '')
+          : node.removeAttribute('inert'))
+      }
+    >
       <Head>
         <title>Windbnb</title>
         <meta
@@ -17,26 +25,24 @@ const Layout: FC<Props> = ({ inertFlg, children }) => {
           content="devChallenges.io - Windbnb | by h-yoshikawa44"
         />
       </Head>
-      <div
-        css={container}
-        ref={(node) =>
-          node &&
-          (inertFlg
-            ? node.setAttribute('inert', '')
-            : node.removeAttribute('inert'))
-        }
-      >
-        {children}
-        <Footer />
-      </div>
+      <div css={contents}>{children}</div>
+      <Footer css={customFooter} />
     </div>
   );
 };
 
-const container = css`
-  max-width: 1280px;
-  padding: 0 4%;
-  margin: 0 auto;
+const globalLayout = css`
+  display: grid;
+  grid-template: 'contents' 1fr 'footer' auto/100%;
+  min-height: 100vh;
+`;
+
+const contents = css`
+  grid-area: contents;
+`;
+
+const customFooter = css`
+  grid-area: footer;
 `;
 
 export default Layout;
