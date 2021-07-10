@@ -2,6 +2,7 @@ import { FC, ComponentPropsWithRef, useState, useCallback } from 'react';
 import { css } from '@emotion/react';
 import { Close } from '@emotion-icons/material-rounded/Close';
 import Drawer from '@/components/SearchDrawer/Drawer';
+import ClearButton from '@/components/SearchDrawer/ClearButton';
 import SearchInput from '@/components/SearchDrawer/SearchInput';
 import SearchButton from '@/components/SearchDrawer/SearchButton';
 import SelectLocationList from '@/components/SearchDrawer/SelectLocationList';
@@ -20,6 +21,7 @@ type Props = ComponentPropsWithRef<'div'> & {
   onPlusGuests: (prop: keyof Guests) => void;
   onMinusGuests: (prop: keyof Guests) => void;
   onSearch: (ev: React.FormEvent<HTMLFormElement>) => void;
+  onClear: VoidFunction;
 };
 
 const SearchDrawer: FC<Props> = ({
@@ -31,22 +33,33 @@ const SearchDrawer: FC<Props> = ({
   onPlusGuests,
   onMinusGuests,
   onSearch,
+  onClear,
 }) => {
   const [tab, setTab] = useState<Tab>('location');
   const handleSelectTab = useCallback((tabType: Tab) => {
     setTab(tabType);
   }, []);
 
+  const formId = 'drawer-search-form';
+
   return (
     <Drawer id="search-drawer-menu" open={open} onClose={onClose}>
       <div css={[drawerContent, container, !open && hiddenVisibility]}>
         <div css={drawerHeader}>
           <p css={drawerHeaderText}>Edit your search</p>
+          <ClearButton form={formId} type="reset" />
           <button css={drawerCloseButton} onClick={onClose}>
-            <Close size={50} />
+            <Close size={18} />
           </button>
         </div>
-        <form onSubmit={onSearch}>
+        <form
+          id={formId}
+          onSubmit={onSearch}
+          onReset={(ev) => {
+            ev.preventDefault();
+            onClear();
+          }}
+        >
           <div css={searchBox}>
             <div
               css={[searchInputBox, tab === 'location' && searchInputBoxSelect]}
@@ -147,17 +160,13 @@ const desktopDisplay = css`
 `;
 
 const drawerHeader = css`
-  display: none;
+  display: flex;
+  align-items: center;
   margin-top: 18px;
-
-  @media (max-width: 600px) {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
 `;
 
 const drawerHeaderText = css`
+  flex: 1;
   font-family: Mulish, sans-serif;
   font-size: 12px;
   font-weight: bold;
@@ -168,25 +177,28 @@ const drawerCloseButton = css`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 40px;
+  height: 40px;
   padding: 0;
   cursor: pointer;
   background-color: #fff;
   border: none;
-  outline: none;
 
   &:hover,
   &:focus {
     background-color: rgba(0, 0, 0, 0.04);
     border-radius: 16px;
   }
+
+  &:focus:not(.focus-visible) {
+    outline: none;
+  }
 `;
 
 const searchBox = css`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  margin-top: 88px;
+  margin-top: 48px;
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
@@ -206,11 +218,15 @@ const searchInputBox = css`
   pointer-events: auto;
   cursor: pointer;
   border-right: 1px solid #f2f2f2;
-  outline: none;
 
+  &:hover,
   &:focus,
   &:focus-within {
     background-color: rgba(0, 0, 0, 0.04);
+  }
+
+  &:focus:not(.focus-visible) {
+    outline: none;
   }
 `;
 

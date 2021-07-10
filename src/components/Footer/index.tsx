@@ -1,10 +1,12 @@
-import { VFC } from 'react';
+import { VFC, ComponentPropsWithRef } from 'react';
 import Image from 'next/image';
 import { css } from '@emotion/react';
 
-const Footer: VFC = () => {
+type Props = ComponentPropsWithRef<'footer'>;
+
+const Footer: VFC<Props> = ({ ...props }) => {
   return (
-    <footer css={[footer, footerText]}>
+    <footer css={[footer, footerText]} {...props}>
       <span>
         created by <span css={name}>h-yoshikawa44</span> - devChallenges.io
         |&nbsp;
@@ -37,6 +39,12 @@ const footerText = css`
   font-size: 14px;
   font-weight: 500;
   line-height: 17px;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    justify-content: space-around;
+    height: 70px;
+  }
 `;
 
 const name = css`

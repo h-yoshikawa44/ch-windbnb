@@ -26,6 +26,7 @@ const Home = () => {
     handleSelectLocation,
     handlePlusGuests,
     handleMinusGuests,
+    handleClear,
   } = useStaySearchForm();
 
   const { data, refetch } = useGetStayListQuery(
@@ -37,6 +38,7 @@ const Home = () => {
     (ev: React.FormEvent<HTMLFormElement>) => {
       ev.preventDefault();
       refetch();
+      setIsDrawerOpen(false);
     },
     [refetch]
   );
@@ -44,21 +46,23 @@ const Home = () => {
   return (
     <Fragment>
       <Layout inertFlg={isDrawerOpen}>
-        <header css={header}>
-          <h1>
-            <Logo />
-          </h1>
-          <div css={searchBoxMargin}>
-            <MiniSearchBox
-              location={location}
-              guests={guests}
-              isDrawerOpen={isDrawerOpen}
-              onDrawerOpen={handleDrawerOpen}
-              onSearch={handleSearch}
-            />
+        <header css={container}>
+          <div css={headerContentsBox}>
+            <h1>
+              <Logo />
+            </h1>
+            <div css={searchBoxMargin}>
+              <MiniSearchBox
+                location={location}
+                guests={guests}
+                isDrawerOpen={isDrawerOpen}
+                onDrawerOpen={handleDrawerOpen}
+                onSearch={handleSearch}
+              />
+            </div>
           </div>
         </header>
-        <main>
+        <main css={container}>
           <div css={subHeader}>
             <h2 css={pageTitle}>Stays in Finland</h2>
             <p>{`${data?.length}+ stays`}</p>
@@ -92,6 +96,7 @@ const Home = () => {
         onPlusGuests={handlePlusGuests}
         onMinusGuests={handleMinusGuests}
         onSearch={handleSearch}
+        onClear={handleClear}
       />
     </Fragment>
   );
@@ -109,7 +114,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   };
 };
 
-const header = css`
+const container = css`
+  max-width: 1280px;
+  padding: 0 4%;
+  margin: 0 auto;
+`;
+
+const headerContentsBox = css`
   display: flex;
   justify-content: space-between;
   margin-top: 32px;
@@ -143,14 +154,10 @@ const pageTitle = css`
 
 const stayCardGrid = css`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   row-gap: 32px;
   column-gap: 32px;
   padding-bottom: 40px;
-
-  @media (max-width: 600px) {
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  }
 `;
 
 export default Home;

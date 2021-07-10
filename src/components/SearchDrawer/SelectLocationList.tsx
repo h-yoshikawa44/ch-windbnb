@@ -36,12 +36,15 @@ const searchLocationItem = css`
   cursor: pointer;
   background-color: #fff;
   border: none;
-  outline: none;
   transition: background-color 0.3s;
 
   &:hover,
   &:focus {
     background-color: rgba(0, 0, 0, 0.04);
+  }
+
+  &:focus:not(.focus-visible) {
+    outline: none;
   }
 `;
 
