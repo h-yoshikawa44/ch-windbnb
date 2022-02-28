@@ -5,10 +5,9 @@ import Drawer from '@/components/common/Drawer';
 import ClearButton from '@/components/common/ClearButton';
 import SearchInput from '@/components/common/Input';
 import SearchButton from '@/components/common/SearchButton';
-import SelectLocationList from '@/components/model/Stay/StaySelectLocationList';
-import CalcGuests from '@/components/model/Stay/StayCalcGuests';
-
-import { Guests } from '@/hooks/stay';
+import StaySelectLocationList from '@/components/model/Stay/StaySelectLocationList';
+import StayCalcGuests from '@/components/model/Stay/StayCalcGuests';
+import { Guests } from '@/models/Stay';
 
 type Tab = 'location' | 'guests';
 
@@ -105,10 +104,10 @@ const StaySearchDrawer: FC<Props> = ({
           </div>
           <div css={searchContentBox}>
             <div css={tab !== 'location' && hiddenDisplay}>
-              <SelectLocationList onSelectLocation={onSelectLocation} />
+              <StaySelectLocationList onSelectLocation={onSelectLocation} />
             </div>
             <div css={tab !== 'guests' && hiddenDisplay}>
-              <CalcGuests
+              <StayCalcGuests
                 adultsNum={guests.adults}
                 childrenNum={guests.children}
                 onPlusGuests={onPlusGuests}

@@ -2,7 +2,7 @@ import { VFC } from 'react';
 import { css } from '@emotion/react';
 import { Add } from '@emotion-icons/material-rounded/Add';
 import { Remove } from '@emotion-icons/material-rounded/Remove';
-import { Guests } from '@/hooks/stay';
+import { Guests } from '@/models/Stay';
 
 type BoxProps = {
   type: 'adults' | 'children';

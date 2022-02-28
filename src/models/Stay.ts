@@ -1,3 +1,13 @@
+export type Guests = {
+  adults: number;
+  children: number;
+};
+
+export type GetListRequestQuery = {
+  location: string;
+  guests: Guests;
+};
+
 export type Stay = {
   city: string;
   country: string;
@@ -10,7 +20,9 @@ export type Stay = {
   photo: string;
 };
 
-const isStay = (arg: unknown): arg is Stay => {
+export type Stays = Stay[];
+
+export const isStay = (arg: unknown): arg is Stay => {
   const s = arg as Stay;
 
   return (
@@ -28,8 +40,6 @@ const isStay = (arg: unknown): arg is Stay => {
   );
 };
 
-const isStays = (args: unknown[]): args is Stay[] => {
+export const isStays = (args: unknown[]): args is Stay[] => {
   return !args.some((arg) => !isStay(arg));
 };
-
-export { isStay, isStays };

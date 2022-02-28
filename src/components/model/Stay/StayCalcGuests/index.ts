@@ -1,3 +1,3 @@
-import CalcGuests from './CalcGuests';
+import StayCalcGuests from './StayCalcGuests';
 
-export default CalcGuests;
+export default StayCalcGuests;

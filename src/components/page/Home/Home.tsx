@@ -1,37 +1,26 @@
-import { Fragment, useContext, useCallback } from 'react';
+import { Fragment, useContext } from 'react';
 import { css } from '@emotion/react';
 import { DrawerMenuContext } from '@/components/context/DrawerMenuContext';
 import Logo from '@/components/common/Logo';
 import MiniSearchBox from '@/components/model/Stay/StayMiniSearchBox';
 import StayCard from '@/components/model/Stay/StayCard';
 import SearchDrawer from '@/components/model/Stay/StaySearchDrawer';
-import { useGetStayListQuery, useStaySearchForm } from '@/hooks/stay';
+import { useStays } from '@/hooks/stay';
 
 const Home = () => {
   const { isDrawerOpen, handleDrawerOpen, handleDrawerClose } =
     useContext(DrawerMenuContext);
+
   const {
     location,
     guests,
+    stays,
     handleSelectLocation,
     handlePlusGuests,
     handleMinusGuests,
     handleClear,
-  } = useStaySearchForm();
-
-  const { data, refetch } = useGetStayListQuery(
-    { location: location, guests: guests },
-    { enabled: false }
-  );
-
-  const handleSearch = useCallback(
-    (ev: React.FormEvent<HTMLFormElement>) => {
-      ev.preventDefault();
-      refetch();
-      handleDrawerClose();
-    },
-    [refetch, handleDrawerClose]
-  );
+    handleSearch,
+  } = useStays();
 
   return (
     <Fragment>
@@ -54,10 +43,10 @@ const Home = () => {
       <main css={container}>
         <div css={subHeader}>
           <h2 css={pageTitle}>Stays in Finland</h2>
-          <p>{`${data?.length}+ stays`}</p>
+          <p>{`${stays?.length}+ stays`}</p>
         </div>
         <div css={stayCardGrid}>
-          {data?.map((stay, index) => {
+          {stays?.map((stay, index) => {
             return (
               <StayCard
                 key={`${index}-${stay.title}`}

@@ -2,7 +2,7 @@ import { VFC } from 'react';
 import Image from 'next/image';
 import { css } from '@emotion/react';
 import SuperHostChip from '@/components/model/Stay/StaySuperHostChip';
-import Rating from '@/components/model/Stay/StayRating';
+import StayRating from '@/components/model/Stay/StayRating';
 import { Stay } from '@/models/Stay';
 
 type Props = Stay;
@@ -32,7 +32,7 @@ const StayCard: VFC<Props> = ({
           </div>
         )}
         <div css={captionText}>{caption}</div>
-        <Rating css={customRating} value={rating.toFixed(2)} />
+        <StayRating css={customRating} value={rating.toFixed(2)} />
       </div>
       <h3 css={cardTitle}>{title}</h3>
     </div>

@@ -1,8 +1,8 @@
 import { VFC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
 import { Search } from '@emotion-icons/material-rounded/Search';
-import { Guests } from '@/hooks/stay';
-import { createRGBAColor } from '@/util/color';
+import { Guests } from '@/models/Stay';
+import { createRGBAColor } from '@/lib/color';
 
 type Props = ComponentPropsWithRef<'form'> & {
   location: string;

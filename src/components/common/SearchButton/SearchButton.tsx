@@ -1,7 +1,7 @@
 import { FC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
 import { Search } from '@emotion-icons/material-rounded/Search';
-import { createDarkenColor } from '@/util/color';
+import { createDarkenColor } from '@/lib/color';
 
 type Props = ComponentPropsWithRef<'button'>;
 
