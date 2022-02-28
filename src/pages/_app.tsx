@@ -6,6 +6,7 @@ import { Hydrate } from 'react-query/hydration';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import 'focus-visible';
 import 'wicg-inert';
+import { DrawerMenuProvider } from '@/components/context/DrawerMenuContext';
 import { globalStyle } from '@/styles/globals';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
@@ -26,14 +27,16 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <Fragment>
       <Global styles={globalStyle} />
-      <QueryClientProvider client={queryClient}>
-        <Hydrate state={pageProps.dehydratedState}>
-          <Component {...pageProps} />
-          {process.env.NODE_ENV === 'development' && (
-            <ReactQueryDevtools initialIsOpen={false} />
-          )}
-        </Hydrate>
-      </QueryClientProvider>
+      <DrawerMenuProvider>
+        <QueryClientProvider client={queryClient}>
+          <Hydrate state={pageProps.dehydratedState}>
+            <Component {...pageProps} />
+            {process.env.NODE_ENV === 'development' && (
+              <ReactQueryDevtools initialIsOpen={false} />
+            )}
+          </Hydrate>
+        </QueryClientProvider>
+      </DrawerMenuProvider>
     </Fragment>
   );
 };

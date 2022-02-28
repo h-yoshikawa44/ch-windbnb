@@ -1,4 +1,5 @@
 import { FC, ComponentPropsWithRef, MouseEventHandler } from 'react';
+import { createPortal } from 'react-dom';
 import { css } from '@emotion/react';
 import Backdrop from '@/components/common/BackDrop';
 
@@ -7,7 +8,7 @@ type Props = ComponentPropsWithRef<'div'> & {
   onClose: MouseEventHandler<HTMLDivElement>;
 };
 
-const Drawer: FC<Props> = ({ open, onClose, children, ...props }) => {
+const DrawerBase: FC<Props> = ({ open, onClose, children, ...props }) => {
   return (
     <div css={[searchDrawer, !open && hiddenVisibility]} {...props}>
       <Backdrop open={open} onClick={onClose} />
@@ -15,6 +16,24 @@ const Drawer: FC<Props> = ({ open, onClose, children, ...props }) => {
         {children}
       </div>
     </div>
+  );
+};
+
+const Drawer: FC<Props> = ({ open, onClose, children, ...props }) => {
+  // クライアント側の処理になるので、Next.jsでのサーバ側ではポータルを使わないようにする
+  if (typeof window === 'undefined') {
+    return (
+      <DrawerBase open={open} onClose={onClose} {...props}>
+        {children}
+      </DrawerBase>
+    );
+  }
+
+  return createPortal(
+    <DrawerBase open={open} onClose={onClose} {...props}>
+      {children}
+    </DrawerBase>,
+    document.body
   );
 };
 
