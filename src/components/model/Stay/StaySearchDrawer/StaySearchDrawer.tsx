@@ -8,6 +8,7 @@ import SearchButton from '@/components/common/SearchButton';
 import StaySelectLocationList from '@/components/model/Stay/StaySelectLocationList';
 import StayCalcGuests from '@/components/model/Stay/StayCalcGuests';
 import { Guests } from '@/models/Stay';
+import { breakPoint, fonts, colors } from '@/styles/constants';
 
 type Tab = 'location' | 'guests';
 
@@ -130,7 +131,7 @@ const drawerContent = css`
   top: 0;
   width: 100%;
   min-height: 460px;
-  background-color: #fff;
+  background-color: ${colors.white};
 `;
 
 const container = css`
@@ -145,7 +146,7 @@ const hiddenVisibility = css`
 const hiddenDisplay = css`
   visibility: hidden;
 
-  @media (max-width: 600px) {
+  @media (max-width: ${breakPoint.sm - 1}px) {
     display: none;
   }
 `;
@@ -153,7 +154,7 @@ const hiddenDisplay = css`
 const desktopDisplay = css`
   display: inherit;
 
-  @media (max-width: 600px) {
+  @media (max-width: ${breakPoint.sm - 1}px) {
     display: none;
   }
 `;
@@ -166,7 +167,7 @@ const drawerHeader = css`
 
 const drawerHeaderText = css`
   flex: 1;
-  font-family: Mulish, sans-serif;
+  font-family: ${fonts.mulish};
   font-size: 12px;
   font-weight: bold;
   line-height: 15px;
@@ -180,7 +181,7 @@ const drawerCloseButton = css`
   height: 40px;
   padding: 0;
   cursor: pointer;
-  background-color: #fff;
+  background-color: ${colors.white};
   border: none;
 
   &:hover,
@@ -190,7 +191,7 @@ const drawerCloseButton = css`
   }
 
   &:focus:not(.focus-visible) {
-    outline: none;
+    outline-color: transparent;
   }
 `;
 
@@ -198,15 +199,15 @@ const searchBox = css`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin-top: 48px;
-  background: #fff;
+  background: ${colors.white};
   border-radius: 16px;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
 
   input {
-    border-right: 1px solid #f2f2f2;
+    border-right: 1px solid ${colors.white2};
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: ${breakPoint.sm - 1}px) {
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     margin-top: 16px;
   }
@@ -216,7 +217,7 @@ const searchInputBox = css`
   padding: 16px 24px 8px;
   pointer-events: auto;
   cursor: pointer;
-  border-right: 1px solid #f2f2f2;
+  border-right: 1px solid ${colors.white2};
 
   &:hover,
   &:focus,
@@ -225,13 +226,13 @@ const searchInputBox = css`
   }
 
   &:focus:not(.focus-visible) {
-    outline: none;
+    outline-color: transparent;
   }
 `;
 
 const searchInputBoxSelect = css`
   padding: 15px 23px 7px;
-  border: 1px solid #333;
+  border: 1px solid ${colors.black};
   border-radius: 16px;
 `;
 
@@ -240,7 +241,7 @@ const searchContentBox = css`
   grid-template-columns: repeat(3, 1fr);
   margin: 42px 0;
 
-  @media (max-width: 600px) {
+  @media (max-width: ${breakPoint.sm - 1}px) {
     display: block;
   }
 `;
@@ -250,7 +251,7 @@ const mobileSearchButton = css`
   width: fit-content;
   margin: 160px auto 40px;
 
-  @media (max-width: 600px) {
+  @media (max-width: ${breakPoint.sm - 1}px) {
     display: block;
   }
 `;

@@ -1,6 +1,7 @@
 import { FC, VFC } from 'react';
 import { css } from '@emotion/react';
 import { Room } from '@emotion-icons/material-rounded/Room';
+import { colors } from '@/styles/constants';
 
 type ItemProps = {
   value: string;
@@ -25,7 +26,7 @@ const SelectLocationItem: FC<ItemProps> = ({ value, onSelectLocation }) => {
 const icon = css`
   display: inline;
   margin-right: 8px;
-  color: #4f4f4f;
+  color: ${colors.blackLighten};
   vertical-align: text-bottom;
 `;
 
@@ -34,7 +35,7 @@ const searchLocationItem = css`
   padding: 18px 0;
   text-align: left;
   cursor: pointer;
-  background-color: #fff;
+  background-color: ${colors.white};
   border: none;
   transition: background-color 0.3s;
 
@@ -44,7 +45,7 @@ const searchLocationItem = css`
   }
 
   &:focus:not(.focus-visible) {
-    outline: none;
+    outline-color: transparent;
   }
 `;
 

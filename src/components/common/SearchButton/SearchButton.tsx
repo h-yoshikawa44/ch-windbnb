@@ -1,6 +1,7 @@
 import { FC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
 import { Search } from '@emotion-icons/material-rounded/Search';
+import { fonts, colors } from '@/styles/constants';
 import { createDarkenColor } from '@/lib/color';
 
 type Props = ComponentPropsWithRef<'button'>;
@@ -16,13 +17,13 @@ const SearchButton: FC<Props> = ({ children, ...props }) => {
 
 const searchButton = css`
   padding: 16px 24px;
-  font-family: Mulish, sans-serif;
+  font-family: ${fonts.mulish};
   font-size: 14px;
   font-weight: bold;
   line-height: 18px;
-  color: #fff;
+  color: ${colors.white};
   cursor: pointer;
-  background-color: #eb5757;
+  background-color: ${colors.primary};
   border: none;
   border-radius: 16px;
   transition: background-color 0.3s;
@@ -30,7 +31,7 @@ const searchButton = css`
   &:hover,
   &:focus {
     /* stylelint-disable-next-line function-name-case */
-    background-color: ${createDarkenColor('#eb5757', '20%')};
+    background-color: ${createDarkenColor(colors.primary, '20%')};
   }
 
   &:focus:not(.focus-visible) {

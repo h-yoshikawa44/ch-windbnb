@@ -1,5 +1,6 @@
 import { VFC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
+import { fonts, colors } from '@/styles/constants';
 
 type Props = ComponentPropsWithRef<'button'>;
 
@@ -16,12 +17,12 @@ const clearButton = css`
   align-items: center;
   justify-content: center;
   padding: 8px 16px;
-  font-family: Mulish, sans-serif;
+  font-family: ${fonts.mulish};
   font-size: 12px;
   font-weight: bold;
   line-height: 15px;
   cursor: pointer;
-  background-color: #fff;
+  background-color: ${colors.white};
   border: none;
   border-radius: 8px;
 
@@ -31,7 +32,7 @@ const clearButton = css`
   }
 
   &:focus:not(.focus-visible) {
-    outline: none;
+    outline-color: transparent;
   }
 `;
 

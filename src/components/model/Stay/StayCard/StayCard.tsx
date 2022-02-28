@@ -4,6 +4,7 @@ import { css } from '@emotion/react';
 import SuperHostChip from '@/components/model/Stay/StaySuperHostChip';
 import StayRating from '@/components/model/Stay/StayRating';
 import { Stay } from '@/models/Stay';
+import { breakPoint, fonts, colors } from '@/styles/constants';
 
 type Props = Stay;
 
@@ -49,7 +50,7 @@ const stayCard = css`
     background-color: rgba(0, 0, 0, 0.04);
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: ${breakPoint.sm - 1}px) {
     padding: 16px 0;
   }
 `;
@@ -70,12 +71,12 @@ const superHostChipMargin = css`
 `;
 
 const captionText = css`
-  font-family: Montserrat, sans-serif;
+  font-family: ${fonts.montserrat};
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 17px;
-  color: #828282;
+  color: ${colors.gray};
 `;
 
 const customRating = css`
@@ -84,7 +85,7 @@ const customRating = css`
 `;
 
 const cardTitle = css`
-  font-family: Montserrat, sans-serif;
+  font-family: ${fonts.montserrat};
   font-size: 16px;
   font-style: normal;
   font-weight: 600;

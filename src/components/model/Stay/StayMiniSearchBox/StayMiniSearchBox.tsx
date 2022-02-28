@@ -2,6 +2,7 @@ import { VFC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
 import { Search } from '@emotion-icons/material-rounded/Search';
 import { Guests } from '@/models/Stay';
+import { fonts, colors } from '@/styles/constants';
 import { createRGBAColor } from '@/lib/color';
 
 type Props = ComponentPropsWithRef<'form'> & {
@@ -70,17 +71,17 @@ const searchBox = css`
   display: flex;
   max-width: 296px;
   height: 56px;
-  background: #fff;
+  background: ${colors.white};
   border-radius: 16px;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
 
   input {
-    border-right: 1px solid #f2f2f2;
+    border-right: 1px solid ${colors.white2};
   }
 `;
 
 const searchBoxDummyInput = css`
-  font-family: Mulish, sans-serif;
+  font-family: ${fonts.mulish};
   font-size: 14px;
   font-weight: normal;
   line-height: 18px;
@@ -100,7 +101,7 @@ const searchBoxDummyInput = css`
 `;
 
 const searchBoxPlaceHolder = css`
-  color: #bdbdbd;
+  color: ${colors.grayLighten};
 `;
 
 const dummyInputLocation = css`
@@ -116,16 +117,16 @@ const dummyInputGuests = css`
 
 const searchButton = css`
   padding: 16px 16px;
-  color: #eb5757;
+  color: ${colors.primary};
   cursor: pointer;
-  background-color: #fff;
+  background-color: ${colors.white};
   border: none;
   border-radius: 0 16px 16px 0;
 
   &:hover,
   &:focus {
     /* stylelint-disable-next-line function-name-case */
-    background-color: ${createRGBAColor('#eb5757', 0.1)};
+    background-color: ${createRGBAColor(colors.primary, 0.1)};
   }
 
   &:focus:not(.focus-visible) {

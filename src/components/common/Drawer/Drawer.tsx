@@ -2,6 +2,7 @@ import { FC, ComponentPropsWithRef, MouseEventHandler } from 'react';
 import { createPortal } from 'react-dom';
 import { css } from '@emotion/react';
 import Backdrop from '@/components/common/BackDrop';
+import { zIndex } from '@/styles/constants';
 
 type Props = ComponentPropsWithRef<'div'> & {
   open: boolean;
@@ -39,7 +40,7 @@ const Drawer: FC<Props> = ({ open, onClose, children, ...props }) => {
 
 const searchDrawer = css`
   position: fixed;
-  z-index: 1300;
+  z-index: ${zIndex.menu};
   inset: 0;
 `;
 

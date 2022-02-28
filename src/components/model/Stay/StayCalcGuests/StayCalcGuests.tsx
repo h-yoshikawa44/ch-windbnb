@@ -3,6 +3,7 @@ import { css } from '@emotion/react';
 import { Add } from '@emotion-icons/material-rounded/Add';
 import { Remove } from '@emotion-icons/material-rounded/Remove';
 import { Guests } from '@/models/Stay';
+import { fonts, colors } from '@/styles/constants';
 
 type BoxProps = {
   type: 'adults' | 'children';
@@ -47,7 +48,7 @@ const CalcBox: VFC<BoxProps> = ({
 };
 
 const searchGuestTitle = css`
-  font-family: Mulish, sans-serif;
+  font-family: ${fonts.mulish};
   font-size: 14px;
   font-weight: bold;
   line-height: 18px;
@@ -55,11 +56,11 @@ const searchGuestTitle = css`
 
 const searchGuestCaption = css`
   display: block;
-  font-family: Mulish, sans-serif;
+  font-family: ${fonts.mulish};
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
-  color: #bdbdbd;
+  color: ${colors.grayLighten};
 `;
 
 const searchGuestCalcBox = css`
@@ -68,10 +69,10 @@ const searchGuestCalcBox = css`
 
 const searchGuestCalcButton = css`
   padding: 0 6px;
-  color: #828282;
+  color: ${colors.gray};
   cursor: pointer;
-  background-color: #fff;
-  border: 1px solid #828282;
+  background-color: ${colors.white};
+  border: 1px solid ${colors.gray};
   border-radius: 4px;
   transition: background-color 0.3s;
 
@@ -81,7 +82,7 @@ const searchGuestCalcButton = css`
   }
 
   &:focus:not(.focus-visible) {
-    outline: none;
+    outline-color: transparent;
   }
 `;
 
@@ -91,11 +92,11 @@ const searchGuestCalcIcon = css`
 
 const searchGuestNum = css`
   margin: 0 16px;
-  font-family: Mulish, sans-serif;
+  font-family: ${fonts.mulish};
   font-size: 14px;
   font-weight: bold;
   line-height: 18px;
-  color: #333;
+  color: ${colors.black};
 `;
 
 type Props = {

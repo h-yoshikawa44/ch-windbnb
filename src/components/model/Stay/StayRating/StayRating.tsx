@@ -1,6 +1,7 @@
 import { VFC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
 import { Star } from '@emotion-icons/material-rounded/Star';
+import { fonts, colors } from '@/styles/constants';
 
 type Props = ComponentPropsWithRef<'div'> & {
   value: string;
@@ -20,13 +21,13 @@ const rating = css`
 `;
 
 const icon = css`
-  color: #eb5757;
+  color: ${colors.primary};
   vertical-align: text-bottom;
 `;
 
 const ratingValue = css`
   margin-left: 8px;
-  font-family: Montserrat, sans-serif;
+  font-family: ${fonts.montserrat};
   font-size: 14px;
   font-style: normal;
   font-weight: 500;

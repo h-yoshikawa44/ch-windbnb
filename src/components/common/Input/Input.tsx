@@ -1,5 +1,6 @@
 import { VFC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
+import { fonts, colors } from '@/styles/constants';
 
 type Props = ComponentPropsWithRef<'input'> & {
   label: string;
@@ -20,7 +21,7 @@ const searchInputLabel = css`
 
 const searchInputLabelText = css`
   display: block;
-  font-family: Mulish, sans-serif;
+  font-family: ${fonts.mulish};
   font-size: 9px;
   font-weight: 800;
   line-height: 11px;
@@ -29,7 +30,7 @@ const searchInputLabelText = css`
 
 const searchInput = css`
   padding: 0;
-  font-family: Mulish, sans-serif;
+  font-family: ${fonts.mulish};
   font-size: 14px;
   font-weight: normal;
   line-height: 18px;
@@ -39,7 +40,7 @@ const searchInput = css`
   outline: none;
 
   ::placeholder {
-    color: #bdbdbd;
+    color: ${colors.placeHolder};
   }
 `;
 
