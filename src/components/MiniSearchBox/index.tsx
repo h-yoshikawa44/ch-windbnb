@@ -23,11 +23,8 @@ const MiniSearchBox: VFC<Props> = ({
   const guestsNum = guests.adults + guests.children;
   return (
     <form css={searchBox} {...props} onSubmit={onSearch}>
-      <input
-        css={[searchBoxInput, searchBoxInputLocation]}
-        placeholder="Add location"
-        value={location}
-        readOnly
+      <div
+        css={[searchBoxDummyInput, dummyInputLocation]}
         aria-controls="search-drawer-menu"
         aria-expanded={isDrawerOpen}
         onClick={onDrawerOpen}
@@ -37,12 +34,15 @@ const MiniSearchBox: VFC<Props> = ({
             onDrawerOpen();
           }
         }}
-      />
-      <input
-        css={[searchBoxInput, searchBoxInputGuests]}
-        placeholder="Add guests"
-        value={guestsNum === 0 ? '' : guestsNum}
-        readOnly
+      >
+        {location ? (
+          <span>{location}</span>
+        ) : (
+          <span css={searchBoxPlaceHolder}>Add location</span>
+        )}
+      </div>
+      <div
+        css={[searchBoxDummyInput, dummyInputGuests]}
         aria-controls="search-drawer-menu"
         aria-expanded={isDrawerOpen}
         onClick={onDrawerOpen}
@@ -52,7 +52,13 @@ const MiniSearchBox: VFC<Props> = ({
             onDrawerOpen();
           }
         }}
-      />
+      >
+        {guestsNum !== 0 ? (
+          <span>{guestsNum}</span>
+        ) : (
+          <span css={searchBoxPlaceHolder}>Add guests</span>
+        )}
+      </div>
       <button css={searchButton} type="submit">
         <Search size={18} />
       </button>
@@ -73,17 +79,15 @@ const searchBox = css`
   }
 `;
 
-const searchBoxInput = css`
+const searchBoxDummyInput = css`
   font-family: Mulish, sans-serif;
   font-size: 14px;
   font-weight: normal;
   line-height: 18px;
   cursor: pointer;
   border: none;
-
-  ::placeholder {
-    color: #bdbdbd;
-  }
+  display: flex;
+  align-items: center;
 
   &:hover,
   &:focus {
@@ -95,13 +99,17 @@ const searchBoxInput = css`
   }
 `;
 
-const searchBoxInputLocation = css`
+const searchBoxPlaceHolder = css`
+  color: #bdbdbd;
+`;
+
+const dummyInputLocation = css`
   min-width: 122px;
   padding: 16px;
   border-radius: 16px 0 0 16px;
 `;
 
-const searchBoxInputGuests = css`
+const dummyInputGuests = css`
   min-width: 106px;
   padding: 16px;
 `;
@@ -121,7 +129,7 @@ const searchButton = css`
   }
 
   &:focus:not(.focus-visible) {
-    outline: none;
+    outline-color: transparent;
   }
 `;
 
