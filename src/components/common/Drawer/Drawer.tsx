@@ -11,14 +11,34 @@ type Props = ComponentPropsWithRef<'div'> & {
 
 const DrawerBase: FC<Props> = ({ open, onClose, children, ...props }) => {
   return (
-    <div css={[searchDrawer, !open && hiddenVisibility]} {...props}>
+    <div {...props}>
       <Backdrop open={open} onClick={onClose} />
-      <div css={[!open && hiddenVisibility, drawerAnimation(open)]}>
-        {children}
-      </div>
+      <div css={[searchDrawer, open && searchDrawerOpen]}>{children}</div>
     </div>
   );
 };
+
+const searchDrawer = css`
+  position: fixed;
+  z-index: ${zIndex.menu};
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow-y: auto;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s ease 0.3s, transform 0.3s;
+  transform: translateY(-100%);
+`;
+
+const searchDrawerOpen = css`
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+  transform: translateY(0);
+`;
 
 const Drawer: FC<Props> = ({ open, onClose, children, ...props }) => {
   // クライアント側の処理になるので、Next.jsでのサーバ側ではポータルを使わないようにする
@@ -36,31 +56,6 @@ const Drawer: FC<Props> = ({ open, onClose, children, ...props }) => {
     </DrawerBase>,
     document.body
   );
-};
-
-const searchDrawer = css`
-  position: fixed;
-  z-index: ${zIndex.menu};
-  inset: 0;
-`;
-
-const hiddenVisibility = css`
-  visibility: hidden;
-`;
-
-// TODO 戻りのアニメーションが動作しない？
-const drawerAnimation = (open: boolean) => {
-  if (open) {
-    return css`
-      transition: transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;
-      transform: none;
-    `;
-  } else {
-    return css`
-      transition: transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;
-      transform: translateY(-470px);
-    `;
-  }
 };
 
 export default Drawer;

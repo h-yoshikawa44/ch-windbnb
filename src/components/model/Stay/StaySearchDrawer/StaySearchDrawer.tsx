@@ -44,7 +44,7 @@ const StaySearchDrawer: FC<Props> = ({
 
   return (
     <Drawer id="search-drawer-menu" open={open} onClose={onClose}>
-      <div css={[drawerContent, container, !open && hiddenVisibility]}>
+      <div css={[drawerContent, container]}>
         <div css={drawerHeader}>
           <p css={drawerHeaderText}>Edit your search</p>
           <ClearButton form={formId} type="reset" />
@@ -137,10 +137,6 @@ const drawerContent = css`
 const container = css`
   padding: 0 4%;
   margin: 0 auto;
-`;
-
-const hiddenVisibility = css`
-  visibility: hidden;
 `;
 
 const hiddenDisplay = css`
