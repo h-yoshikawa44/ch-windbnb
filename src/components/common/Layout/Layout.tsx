@@ -18,23 +18,19 @@ const Layout: FC<Props> = ({ inertFlg, children }) => {
       }
     >
       <div css={contents}>{children}</div>
-      <Footer css={customFooter} />
+      <Footer />
     </div>
   );
 };
 
 const globalLayout = css`
-  display: grid;
-  grid-template: 'contents' 1fr 'footer' auto/100%;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
 `;
 
 const contents = css`
-  grid-area: contents;
-`;
-
-const customFooter = css`
-  grid-area: footer;
+  flex: 1 0 auto;
 `;
 
 export default Layout;
