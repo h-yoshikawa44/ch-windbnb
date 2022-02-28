@@ -1,6 +1,6 @@
 import { FC, ComponentPropsWithRef, MouseEventHandler } from 'react';
 import { css } from '@emotion/react';
-import Backdrop from '@/components/SearchDrawer/Backdrop';
+import Backdrop from '@/components/common/BackDrop';
 
 type Props = ComponentPropsWithRef<'div'> & {
   open: boolean;

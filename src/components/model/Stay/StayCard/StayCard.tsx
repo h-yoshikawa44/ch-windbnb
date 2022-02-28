@@ -1,8 +1,8 @@
 import { VFC } from 'react';
 import Image from 'next/image';
 import { css } from '@emotion/react';
-import SuperHostChip from '@/components/StayCard/SuperHostChip';
-import Rating from '@/components/StayCard/Rating';
+import SuperHostChip from '@/components/model/Stay/StaySuperHostChip';
+import Rating from '@/components/model/Stay/StayRating';
 import { Stay } from '@/models/Stay';
 
 type Props = Stay;

@@ -6,7 +6,7 @@ type Props = ComponentPropsWithRef<'div'> & {
   value: string;
 };
 
-const Rating: VFC<Props> = ({ value, ...props }) => {
+const StayRating: VFC<Props> = ({ value, ...props }) => {
   return (
     <div css={rating} {...props}>
       <Star css={icon} size={18} />
@@ -33,4 +33,4 @@ const ratingValue = css`
   line-height: 17px;
 `;
 
-export default Rating;
+export default StayRating;

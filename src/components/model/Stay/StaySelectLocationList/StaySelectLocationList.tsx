@@ -59,7 +59,7 @@ type Props = {
   onSelectLocation: (selectLocation: string) => void;
 };
 
-const SelectLocationList: VFC<Props> = ({ onSelectLocation }) => {
+const StaySelectLocationList: VFC<Props> = ({ onSelectLocation }) => {
   return (
     <ul css={searchLocationList}>
       {locationList.map((location, index) => {
@@ -84,4 +84,4 @@ const searchLocationList = css`
   margin-block-end: 0;
 `;
 
-export default SelectLocationList;
+export default StaySelectLocationList;

@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 
 type Props = ComponentPropsWithRef<'div'>;
 
-const SuperHostChip: VFC<Props> = ({ ...props }) => {
+const StaySuperHostChip: VFC<Props> = ({ ...props }) => {
   return (
     <div css={superHostChip} {...props}>
       SUPER HOST
@@ -22,4 +22,4 @@ const superHostChip = css`
   border-radius: 12px;
 `;
 
-export default SuperHostChip;
+export default StaySuperHostChip;

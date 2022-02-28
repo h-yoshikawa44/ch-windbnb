@@ -1,12 +1,12 @@
 import { FC, ComponentPropsWithRef, useState, useCallback } from 'react';
 import { css } from '@emotion/react';
 import { Close } from '@emotion-icons/material-rounded/Close';
-import Drawer from '@/components/SearchDrawer/Drawer';
-import ClearButton from '@/components/SearchDrawer/ClearButton';
-import SearchInput from '@/components/SearchDrawer/SearchInput';
-import SearchButton from '@/components/SearchDrawer/SearchButton';
-import SelectLocationList from '@/components/SearchDrawer/SelectLocationList';
-import CalcGuests from '@/components/SearchDrawer/CalcGuests';
+import Drawer from '@/components/common/Drawer';
+import ClearButton from '@/components/common/ClearButton';
+import SearchInput from '@/components/common/Input';
+import SearchButton from '@/components/common/SearchButton';
+import SelectLocationList from '@/components/model/Stay/StaySelectLocationList';
+import CalcGuests from '@/components/model/Stay/StayCalcGuests';
 
 import { Guests } from '@/hooks/stay';
 
@@ -24,7 +24,7 @@ type Props = ComponentPropsWithRef<'div'> & {
   onClear: VoidFunction;
 };
 
-const SearchDrawer: FC<Props> = ({
+const StaySearchDrawer: FC<Props> = ({
   open = false,
   location,
   guests,
@@ -256,4 +256,4 @@ const mobileSearchButton = css`
   }
 `;
 
-export default SearchDrawer;
+export default StaySearchDrawer;

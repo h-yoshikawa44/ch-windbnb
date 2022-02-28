@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import Head from 'next/head';
 import { css } from '@emotion/react';
-import Footer from '@/components/Footer';
+import Footer from '@/components/common/Footer';
 
 type Props = {
   inertFlg: boolean;

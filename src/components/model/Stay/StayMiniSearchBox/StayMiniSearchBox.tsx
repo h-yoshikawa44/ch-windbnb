@@ -12,7 +12,7 @@ type Props = ComponentPropsWithRef<'form'> & {
   onSearch: (ev: React.FormEvent<HTMLFormElement>) => void;
 };
 
-const MiniSearchBox: VFC<Props> = ({
+const StayMiniSearchBox: VFC<Props> = ({
   location,
   guests,
   isDrawerOpen,
@@ -133,4 +133,4 @@ const searchButton = css`
   }
 `;
 
-export default MiniSearchBox;
+export default StayMiniSearchBox;

@@ -105,7 +105,7 @@ type Props = {
   onMinusGuests: (prop: keyof Guests) => void;
 };
 
-const CalcGuests: VFC<Props> = ({
+const StayCalcGuests: VFC<Props> = ({
   adultsNum,
   childrenNum,
   onPlusGuests,
@@ -139,4 +139,4 @@ const searchGuestBox = css`
   padding: 18px 24px;
 `;
 
-export default CalcGuests;
+export default StayCalcGuests;
