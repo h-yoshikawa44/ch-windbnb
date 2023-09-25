@@ -9,7 +9,7 @@ const Home = () => {
         <title>Windbnb</title>
         <meta
           name="description"
-          content="devChallenges.io - Windbnb | by h-yoshikawa44"
+          content="devChallenges.io(legacy) - Windbnb | by h-yoshikawa44"
         />
       </Head>
       <HomePage />
