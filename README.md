@@ -3,7 +3,7 @@
 <h1 align="center">Windbnb</h1>
 
 <div align="center">
-   Solution for a challenge from  <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>.
+   Solution for a challenge from  <a href="http://legacy.devchallenges.io" target="_blank">Devchallenges.io</a>.
 </div>
 
 <div align="center">
@@ -12,11 +12,11 @@
       Demo
     </a>
     <span> | </span>
-    <a href="https://devchallenges.io/solutions/ftLx16ngH2CDg6hFPU76">
+    <a href="https://legacy.devchallenges.io/solutions/ftLx16ngH2CDg6hFPU76">
       Solution
     </a>
     <span> | </span>
-    <a href="https://devchallenges.io/challenges/3JFYedSOZqAxYuOCNmYD">
+    <a href="https://legacy.devchallenges.io/challenges/3JFYedSOZqAxYuOCNmYD">
       Challenge
     </a>
   </h3>
@@ -81,7 +81,7 @@ Other major libraries
 
 <!-- List the features of your application or follow the template. Don't share the figma file here :) -->
 
-This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge. The [challenge](https://devchallenges.io/challenges/3JFYedSOZqAxYuOCNmYD) was to build an application to complete the given user stories.
+This application/site was created as a submission to a [DevChallenges](https://legacy.devchallenges.io/challenges) challenge. The [challenge](https://legacy.devchallenges.io/challenges/3JFYedSOZqAxYuOCNmYD) was to build an application to complete the given user stories.
 
 - [x] User story: I can see a list of properties
 - [x] User story: I can see the property card with a name, rating, apartment type, and super host
