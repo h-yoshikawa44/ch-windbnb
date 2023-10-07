@@ -1,10 +1,10 @@
-import { VFC, ComponentPropsWithRef } from 'react';
+import { FC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
 import { fonts, colors } from '@/styles/constants';
 
 type Props = ComponentPropsWithRef<'button'>;
 
-const ClearButton: VFC<Props> = ({ ...props }) => {
+const ClearButton: FC<Props> = ({ ...props }) => {
   return (
     <button css={clearButton} {...props}>
       Clear

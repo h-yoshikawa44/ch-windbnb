@@ -1,10 +1,10 @@
-import { VFC, ComponentPropsWithRef } from 'react';
+import { FC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
 import { fonts, colors } from '@/styles/constants';
 
 type Props = ComponentPropsWithRef<'div'>;
 
-const StaySuperHostChip: VFC<Props> = ({ ...props }) => {
+const StaySuperHostChip: FC<Props> = ({ ...props }) => {
   return (
     <div css={superHostChip} {...props}>
       SUPER HOST

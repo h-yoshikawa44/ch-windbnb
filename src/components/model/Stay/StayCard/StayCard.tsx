@@ -1,4 +1,4 @@
-import { VFC } from 'react';
+import { FC } from 'react';
 import Image from 'next/image';
 import { css } from '@emotion/react';
 import SuperHostChip from '@/components/model/Stay/StaySuperHostChip';
@@ -8,7 +8,7 @@ import { breakPoint, fonts, colors } from '@/styles/constants';
 
 type Props = Stay;
 
-const StayCard: VFC<Props> = ({
+const StayCard: FC<Props> = ({
   superHost,
   title,
   rating,

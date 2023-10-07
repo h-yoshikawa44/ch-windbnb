@@ -1,4 +1,4 @@
-import { VFC, ComponentPropsWithRef } from 'react';
+import { FC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
 import { Search } from '@emotion-icons/material-rounded/Search';
 import { Guests } from '@/models/Stay';
@@ -13,7 +13,7 @@ type Props = ComponentPropsWithRef<'form'> & {
   onSearch: (ev: React.FormEvent<HTMLFormElement>) => void;
 };
 
-const StayMiniSearchBox: VFC<Props> = ({
+const StayMiniSearchBox: FC<Props> = ({
   location,
   guests,
   isDrawerOpen,

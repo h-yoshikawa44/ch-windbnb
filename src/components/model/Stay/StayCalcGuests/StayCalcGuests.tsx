@@ -1,4 +1,4 @@
-import { VFC } from 'react';
+import { FC } from 'react';
 import { css } from '@emotion/react';
 import { Add } from '@emotion-icons/material-rounded/Add';
 import { Remove } from '@emotion-icons/material-rounded/Remove';
@@ -14,7 +14,7 @@ type BoxProps = {
   onMinusGuests: (prop: keyof Guests) => void;
 };
 
-const CalcBox: VFC<BoxProps> = ({
+const CalcBox: FC<BoxProps> = ({
   type,
   title,
   caption,
@@ -106,7 +106,7 @@ type Props = {
   onMinusGuests: (prop: keyof Guests) => void;
 };
 
-const StayCalcGuests: VFC<Props> = ({
+const StayCalcGuests: FC<Props> = ({
   adultsNum,
   childrenNum,
   onPlusGuests,

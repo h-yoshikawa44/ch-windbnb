@@ -1,11 +1,11 @@
-import { VFC, ComponentPropsWithRef } from 'react';
+import { FC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
 
 type Props = ComponentPropsWithRef<'div'> & {
   open: boolean;
 };
 
-const Backdrop: VFC<Props> = ({ open, onClick, ...props }) => {
+const Backdrop: FC<Props> = ({ open, onClick, ...props }) => {
   return (
     <div
       css={[drawerBackdrop, !open && hiddenVisibility]}

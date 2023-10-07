@@ -1,7 +1,7 @@
-import { VFC } from 'react';
+import { FC } from 'react';
 import Image from 'next/image';
 
-const Logo: VFC = () => {
+const Logo: FC = () => {
   return <Image src="/logo.svg" alt="Windbnb Logo" width={96} height={16} />;
 };
 

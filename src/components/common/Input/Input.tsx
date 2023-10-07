@@ -1,4 +1,4 @@
-import { VFC, ComponentPropsWithRef } from 'react';
+import { FC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
 import { fonts, colors } from '@/styles/constants';
 
@@ -6,7 +6,7 @@ type Props = ComponentPropsWithRef<'input'> & {
   label: string;
 };
 
-const SearchInput: VFC<Props> = ({ label, ...props }) => {
+const SearchInput: FC<Props> = ({ label, ...props }) => {
   return (
     <label css={searchInputLabel}>
       <span css={searchInputLabelText}>{label}</span>

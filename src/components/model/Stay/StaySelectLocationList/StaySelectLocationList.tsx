@@ -1,4 +1,4 @@
-import { FC, VFC } from 'react';
+import { FC } from 'react';
 import { css } from '@emotion/react';
 import { Room } from '@emotion-icons/material-rounded/Room';
 import { colors } from '@/styles/constants';
@@ -60,7 +60,7 @@ type Props = {
   onSelectLocation: (selectLocation: string) => void;
 };
 
-const StaySelectLocationList: VFC<Props> = ({ onSelectLocation }) => {
+const StaySelectLocationList: FC<Props> = ({ onSelectLocation }) => {
   return (
     <ul css={searchLocationList}>
       {locationList.map((location, index) => {
