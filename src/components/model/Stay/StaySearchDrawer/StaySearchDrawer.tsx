@@ -8,7 +8,8 @@ import SearchButton from '@/components/common/SearchButton';
 import StaySelectLocationList from '@/components/model/Stay/StaySelectLocationList';
 import StayCalcGuests from '@/components/model/Stay/StayCalcGuests';
 import { Guests } from '@/models/Stay';
-import { breakPoint, fonts, colors } from '@/styles/constants';
+import { breakPoint, colors } from '@/styles/constants';
+import { mulish } from '@/styles/fonts';
 
 type Tab = 'location' | 'guests';
 
@@ -163,7 +164,7 @@ const drawerHeader = css`
 
 const drawerHeaderText = css`
   flex: 1;
-  font-family: ${fonts.mulish};
+  font-family: ${mulish.style.fontFamily};
   font-size: 12px;
   font-weight: bold;
   line-height: 15px;

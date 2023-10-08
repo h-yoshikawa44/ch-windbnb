@@ -1,6 +1,7 @@
 import { FC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
-import { fonts, colors } from '@/styles/constants';
+import { colors } from '@/styles/constants';
+import { mulish } from '@/styles/fonts';
 
 type Props = ComponentPropsWithRef<'button'>;
 
@@ -17,7 +18,7 @@ const clearButton = css`
   align-items: center;
   justify-content: center;
   padding: 8px 16px;
-  font-family: ${fonts.mulish};
+  font-family: ${mulish.style.fontFamily};
   font-size: 12px;
   font-weight: bold;
   line-height: 15px;

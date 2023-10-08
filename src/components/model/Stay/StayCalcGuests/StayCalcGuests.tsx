@@ -3,7 +3,8 @@ import { css } from '@emotion/react';
 import { Add } from '@emotion-icons/material-rounded/Add';
 import { Remove } from '@emotion-icons/material-rounded/Remove';
 import { Guests } from '@/models/Stay';
-import { fonts, colors } from '@/styles/constants';
+import { colors } from '@/styles/constants';
+import { mulish } from '@/styles/fonts';
 
 type BoxProps = {
   type: 'adults' | 'children';
@@ -48,7 +49,7 @@ const CalcBox: FC<BoxProps> = ({
 };
 
 const searchGuestTitle = css`
-  font-family: ${fonts.mulish};
+  font-family: ${mulish.style.fontFamily};
   font-size: 14px;
   font-weight: bold;
   line-height: 18px;
@@ -56,7 +57,7 @@ const searchGuestTitle = css`
 
 const searchGuestCaption = css`
   display: block;
-  font-family: ${fonts.mulish};
+  font-family: ${mulish.style.fontFamily};
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
@@ -92,7 +93,7 @@ const searchGuestCalcIcon = css`
 
 const searchGuestNum = css`
   margin: 0 16px;
-  font-family: ${fonts.mulish};
+  font-family: ${mulish.style.fontFamily};
   font-size: 14px;
   font-weight: bold;
   line-height: 18px;

@@ -5,7 +5,8 @@ import Logo from '@/components/common/Logo';
 import MiniSearchBox from '@/components/model/Stay/StayMiniSearchBox';
 import StayCard from '@/components/model/Stay/StayCard';
 import SearchDrawer from '@/components/model/Stay/StaySearchDrawer';
-import { breakPoint, fonts, colors } from '@/styles/constants';
+import { breakPoint } from '@/styles/constants';
+import { montserrat } from '@/styles/fonts';
 import { useStays } from '@/hooks/stay';
 
 const Home = () => {
@@ -112,7 +113,7 @@ const subHeader = css`
 `;
 
 const pageTitle = css`
-  font-family: ${fonts.montserrat};
+  font-family: ${montserrat.style.fontFamily};
   font-size: 24px;
   font-weight: bold;
   line-height: 29px;

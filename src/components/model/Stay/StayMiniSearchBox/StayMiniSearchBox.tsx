@@ -2,7 +2,8 @@ import { FC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
 import { Search } from '@emotion-icons/material-rounded/Search';
 import { Guests } from '@/models/Stay';
-import { fonts, colors } from '@/styles/constants';
+import { colors } from '@/styles/constants';
+import { mulish } from '@/styles/fonts';
 import { createRGBAColor } from '@/lib/color';
 
 type Props = ComponentPropsWithRef<'form'> & {
@@ -81,14 +82,14 @@ const searchBox = css`
 `;
 
 const searchBoxDummyInput = css`
-  font-family: ${fonts.mulish};
+  display: flex;
+  align-items: center;
+  font-family: ${mulish.style.fontFamily};
   font-size: 14px;
   font-weight: normal;
   line-height: 18px;
   cursor: pointer;
   border: none;
-  display: flex;
-  align-items: center;
 
   &:hover,
   &:focus {
@@ -116,7 +117,7 @@ const dummyInputGuests = css`
 `;
 
 const searchButton = css`
-  padding: 16px 16px;
+  padding: 16px;
   color: ${colors.primary};
   cursor: pointer;
   background-color: ${colors.white};

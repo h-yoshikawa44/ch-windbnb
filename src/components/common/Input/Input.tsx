@@ -1,6 +1,7 @@
 import { FC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
-import { fonts, colors } from '@/styles/constants';
+import { colors } from '@/styles/constants';
+import { mulish } from '@/styles/fonts';
 
 type Props = ComponentPropsWithRef<'input'> & {
   label: string;
@@ -21,7 +22,7 @@ const searchInputLabel = css`
 
 const searchInputLabelText = css`
   display: block;
-  font-family: ${fonts.mulish};
+  font-family: ${mulish.style.fontFamily};
   font-size: 9px;
   font-weight: 800;
   line-height: 11px;
@@ -30,7 +31,7 @@ const searchInputLabelText = css`
 
 const searchInput = css`
   padding: 0;
-  font-family: ${fonts.mulish};
+  font-family: ${mulish.style.fontFamily};
   font-size: 14px;
   font-weight: normal;
   line-height: 18px;

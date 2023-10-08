@@ -4,7 +4,8 @@ import { css } from '@emotion/react';
 import SuperHostChip from '@/components/model/Stay/StaySuperHostChip';
 import StayRating from '@/components/model/Stay/StayRating';
 import { Stay } from '@/models/Stay';
-import { breakPoint, fonts, colors } from '@/styles/constants';
+import { breakPoint, colors } from '@/styles/constants';
+import { montserrat } from '@/styles/fonts';
 
 type Props = Stay;
 
@@ -71,7 +72,7 @@ const superHostChipMargin = css`
 `;
 
 const captionText = css`
-  font-family: ${fonts.montserrat};
+  font-family: ${montserrat.style.fontFamily};
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -85,7 +86,7 @@ const customRating = css`
 `;
 
 const cardTitle = css`
-  font-family: ${fonts.montserrat};
+  font-family: ${montserrat.style.fontFamily};
   font-size: 16px;
   font-style: normal;
   font-weight: 600;

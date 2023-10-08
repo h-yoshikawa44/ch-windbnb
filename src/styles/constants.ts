@@ -20,15 +20,6 @@ export const zIndex = {
   menu,
 };
 
-// フォント
-const mulish = 'Mulish, sans-serif';
-const montserrat = 'Montserrat, sans-serif';
-
-export const fonts = {
-  mulish,
-  montserrat,
-};
-
 // 色
 const black = '#333';
 const blackLighten = '#4f4f4f';

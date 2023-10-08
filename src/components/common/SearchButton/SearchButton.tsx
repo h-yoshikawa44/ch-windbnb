@@ -1,7 +1,8 @@
 import { FC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
 import { Search } from '@emotion-icons/material-rounded/Search';
-import { fonts, colors } from '@/styles/constants';
+import { colors } from '@/styles/constants';
+import { mulish } from '@/styles/fonts';
 import { createDarkenColor } from '@/lib/color';
 
 type Props = ComponentPropsWithRef<'button'>;
@@ -17,7 +18,7 @@ const SearchButton: FC<Props> = ({ children, ...props }) => {
 
 const searchButton = css`
   padding: 16px 24px;
-  font-family: ${fonts.mulish};
+  font-family: ${mulish.style.fontFamily};
   font-size: 14px;
   font-weight: bold;
   line-height: 18px;

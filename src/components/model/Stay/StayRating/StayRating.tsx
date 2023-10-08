@@ -1,7 +1,8 @@
 import { FC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
 import { Star } from '@emotion-icons/material-rounded/Star';
-import { fonts, colors } from '@/styles/constants';
+import { colors } from '@/styles/constants';
+import { montserrat } from '@/styles/fonts';
 
 type Props = ComponentPropsWithRef<'div'> & {
   value: string;
@@ -27,7 +28,7 @@ const icon = css`
 
 const ratingValue = css`
   margin-left: 8px;
-  font-family: ${fonts.montserrat};
+  font-family: ${montserrat.style.fontFamily};
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
