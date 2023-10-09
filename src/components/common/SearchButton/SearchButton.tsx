@@ -42,7 +42,7 @@ const searchButton = css`
 
 const searchButtonIcon = css`
   margin-right: 8px;
-  vertical-align: text-bottom; ;
+  vertical-align: text-bottom;
 `;
 
 export default SearchButton;

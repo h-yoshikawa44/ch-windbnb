@@ -29,7 +29,10 @@ const searchDrawer = css`
   overflow-y: auto;
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.3s, visibility 0.3s ease 0.3s, transform 0.3s;
+  transition:
+    opacity 0.3s,
+    visibility 0.3s ease 0.3s,
+    transform 0.3s;
   transform: translateY(-100%);
 `;
 
@@ -54,7 +57,7 @@ const Drawer: FC<Props> = ({ open, onClose, children, ...props }) => {
     <DrawerBase open={open} onClose={onClose} {...props}>
       {children}
     </DrawerBase>,
-    document.body
+    document.body,
   );
 };
 

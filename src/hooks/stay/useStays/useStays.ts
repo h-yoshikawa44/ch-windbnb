@@ -44,7 +44,7 @@ const useStays = () => {
         return { ...guests, [prop]: calcValue };
       });
     },
-    [guests]
+    [guests],
   );
 
   const handleMinusGuests = useCallback(
@@ -55,7 +55,7 @@ const useStays = () => {
         return { ...guests, [prop]: calcValue };
       });
     },
-    [guests]
+    [guests],
   );
 
   const handleClear = useCallback(() => {
@@ -70,7 +70,7 @@ const useStays = () => {
       setStays(filterStays(stayData, { location, guests }));
       handleDrawerClose();
     },
-    [location, guests, handleDrawerClose]
+    [location, guests, handleDrawerClose],
   );
 
   return {
