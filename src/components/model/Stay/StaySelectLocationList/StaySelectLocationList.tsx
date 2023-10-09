@@ -1,4 +1,4 @@
-import { FC, VFC } from 'react';
+import { FC } from 'react';
 import { css } from '@emotion/react';
 import { Room } from '@emotion-icons/material-rounded/Room';
 import { colors } from '@/styles/constants';
@@ -41,10 +41,10 @@ const searchLocationItem = css`
 
   &:hover,
   &:focus {
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: rgb(0 0 0 / 4%);
   }
 
-  &:focus:not(.focus-visible) {
+  &:focus:not(:focus-visible) {
     outline-color: transparent;
   }
 `;
@@ -60,7 +60,7 @@ type Props = {
   onSelectLocation: (selectLocation: string) => void;
 };
 
-const StaySelectLocationList: VFC<Props> = ({ onSelectLocation }) => {
+const StaySelectLocationList: FC<Props> = ({ onSelectLocation }) => {
   return (
     <ul css={searchLocationList}>
       {locationList.map((location, index) => {
@@ -80,9 +80,9 @@ const searchLocationList = css`
   display: flex;
   flex-direction: column;
   padding: 0 24px;
-  list-style: none;
   margin-block-start: 0;
   margin-block-end: 0;
+  list-style: none;
 `;
 
 export default StaySelectLocationList;

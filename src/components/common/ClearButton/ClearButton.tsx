@@ -1,10 +1,11 @@
-import { VFC, ComponentPropsWithRef } from 'react';
+import { FC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
-import { fonts, colors } from '@/styles/constants';
+import { colors } from '@/styles/constants';
+import { mulish } from '@/styles/fonts';
 
 type Props = ComponentPropsWithRef<'button'>;
 
-const ClearButton: VFC<Props> = ({ ...props }) => {
+const ClearButton: FC<Props> = ({ ...props }) => {
   return (
     <button css={clearButton} {...props}>
       Clear
@@ -17,7 +18,7 @@ const clearButton = css`
   align-items: center;
   justify-content: center;
   padding: 8px 16px;
-  font-family: ${fonts.mulish};
+  font-family: ${mulish.style.fontFamily};
   font-size: 12px;
   font-weight: bold;
   line-height: 15px;
@@ -28,10 +29,10 @@ const clearButton = css`
 
   &:hover,
   &:focus {
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: rgb(0 0 0 / 4%);
   }
 
-  &:focus:not(.focus-visible) {
+  &:focus:not(:focus-visible) {
     outline-color: transparent;
   }
 `;

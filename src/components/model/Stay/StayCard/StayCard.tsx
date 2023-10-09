@@ -1,14 +1,15 @@
-import { VFC } from 'react';
+import { FC } from 'react';
 import Image from 'next/image';
 import { css } from '@emotion/react';
 import SuperHostChip from '@/components/model/Stay/StaySuperHostChip';
 import StayRating from '@/components/model/Stay/StayRating';
 import { Stay } from '@/models/Stay';
-import { breakPoint, fonts, colors } from '@/styles/constants';
+import { breakPoint, colors } from '@/styles/constants';
+import { montserrat } from '@/styles/fonts';
 
 type Props = Stay;
 
-const StayCard: VFC<Props> = ({
+const StayCard: FC<Props> = ({
   superHost,
   title,
   rating,
@@ -47,10 +48,10 @@ const stayCard = css`
 
   &:hover,
   &:focus {
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: rgb(0 0 0 / 4%);
   }
 
-  @media (max-width: ${breakPoint.sm - 1}px) {
+  @media (width < ${breakPoint.sm}px) {
     padding: 16px 0;
   }
 `;
@@ -71,7 +72,7 @@ const superHostChipMargin = css`
 `;
 
 const captionText = css`
-  font-family: ${fonts.montserrat};
+  font-family: ${montserrat.style.fontFamily};
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -85,7 +86,7 @@ const customRating = css`
 `;
 
 const cardTitle = css`
-  font-family: ${fonts.montserrat};
+  font-family: ${montserrat.style.fontFamily};
   font-size: 16px;
   font-style: normal;
   font-weight: 600;

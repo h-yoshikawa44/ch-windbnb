@@ -1,10 +1,11 @@
-import { VFC, ComponentPropsWithRef } from 'react';
+import { FC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
-import { fonts, colors } from '@/styles/constants';
+import { colors } from '@/styles/constants';
+import { montserrat } from '@/styles/fonts';
 
 type Props = ComponentPropsWithRef<'div'>;
 
-const StaySuperHostChip: VFC<Props> = ({ ...props }) => {
+const StaySuperHostChip: FC<Props> = ({ ...props }) => {
   return (
     <div css={superHostChip} {...props}>
       SUPER HOST
@@ -14,7 +15,7 @@ const StaySuperHostChip: VFC<Props> = ({ ...props }) => {
 
 const superHostChip = css`
   padding: 8px;
-  font-family: ${fonts.montserrat};
+  font-family: ${montserrat.style.fontFamily};
   font-size: 12px;
   font-weight: bold;
   line-height: 15px;

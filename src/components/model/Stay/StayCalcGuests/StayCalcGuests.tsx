@@ -1,9 +1,10 @@
-import { VFC } from 'react';
+import { FC } from 'react';
 import { css } from '@emotion/react';
 import { Add } from '@emotion-icons/material-rounded/Add';
 import { Remove } from '@emotion-icons/material-rounded/Remove';
 import { Guests } from '@/models/Stay';
-import { fonts, colors } from '@/styles/constants';
+import { colors } from '@/styles/constants';
+import { mulish } from '@/styles/fonts';
 
 type BoxProps = {
   type: 'adults' | 'children';
@@ -14,7 +15,7 @@ type BoxProps = {
   onMinusGuests: (prop: keyof Guests) => void;
 };
 
-const CalcBox: VFC<BoxProps> = ({
+const CalcBox: FC<BoxProps> = ({
   type,
   title,
   caption,
@@ -48,7 +49,7 @@ const CalcBox: VFC<BoxProps> = ({
 };
 
 const searchGuestTitle = css`
-  font-family: ${fonts.mulish};
+  font-family: ${mulish.style.fontFamily};
   font-size: 14px;
   font-weight: bold;
   line-height: 18px;
@@ -56,7 +57,7 @@ const searchGuestTitle = css`
 
 const searchGuestCaption = css`
   display: block;
-  font-family: ${fonts.mulish};
+  font-family: ${mulish.style.fontFamily};
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
@@ -78,10 +79,10 @@ const searchGuestCalcButton = css`
 
   &:hover,
   &:focus {
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: rgb(0 0 0 / 4%);
   }
 
-  &:focus:not(.focus-visible) {
+  &:focus:not(:focus-visible) {
     outline-color: transparent;
   }
 `;
@@ -92,7 +93,7 @@ const searchGuestCalcIcon = css`
 
 const searchGuestNum = css`
   margin: 0 16px;
-  font-family: ${fonts.mulish};
+  font-family: ${mulish.style.fontFamily};
   font-size: 14px;
   font-weight: bold;
   line-height: 18px;
@@ -106,7 +107,7 @@ type Props = {
   onMinusGuests: (prop: keyof Guests) => void;
 };
 
-const StayCalcGuests: VFC<Props> = ({
+const StayCalcGuests: FC<Props> = ({
   adultsNum,
   childrenNum,
   onPlusGuests,

@@ -8,7 +8,8 @@ import SearchButton from '@/components/common/SearchButton';
 import StaySelectLocationList from '@/components/model/Stay/StaySelectLocationList';
 import StayCalcGuests from '@/components/model/Stay/StayCalcGuests';
 import { Guests } from '@/models/Stay';
-import { breakPoint, fonts, colors } from '@/styles/constants';
+import { breakPoint, colors } from '@/styles/constants';
+import { mulish } from '@/styles/fonts';
 
 type Tab = 'location' | 'guests';
 
@@ -65,9 +66,9 @@ const StaySearchDrawer: FC<Props> = ({
               css={[searchInputBox, tab === 'location' && searchInputBoxSelect]}
               tabIndex={0}
               onClick={() => handleSelectTab('location')}
-              onKeyPress={(ev) => {
-                ev.preventDefault();
+              onKeyDown={(ev) => {
                 if (ev.key === 'Enter') {
+                  ev.preventDefault();
                   handleSelectTab('location');
                 }
               }}
@@ -84,9 +85,9 @@ const StaySearchDrawer: FC<Props> = ({
               css={[searchInputBox, tab === 'guests' && searchInputBoxSelect]}
               tabIndex={0}
               onClick={() => handleSelectTab('guests')}
-              onKeyPress={(ev) => {
-                ev.preventDefault();
+              onKeyDown={(ev) => {
                 if (ev.key === 'Enter') {
+                  ev.preventDefault();
                   handleSelectTab('guests');
                 }
               }}
@@ -142,7 +143,7 @@ const container = css`
 const hiddenDisplay = css`
   visibility: hidden;
 
-  @media (max-width: ${breakPoint.sm - 1}px) {
+  @media (width < ${breakPoint.sm}px) {
     display: none;
   }
 `;
@@ -150,7 +151,7 @@ const hiddenDisplay = css`
 const desktopDisplay = css`
   display: inherit;
 
-  @media (max-width: ${breakPoint.sm - 1}px) {
+  @media (width < ${breakPoint.sm}px) {
     display: none;
   }
 `;
@@ -163,7 +164,7 @@ const drawerHeader = css`
 
 const drawerHeaderText = css`
   flex: 1;
-  font-family: ${fonts.mulish};
+  font-family: ${mulish.style.fontFamily};
   font-size: 12px;
   font-weight: bold;
   line-height: 15px;
@@ -182,11 +183,11 @@ const drawerCloseButton = css`
 
   &:hover,
   &:focus {
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: rgb(0 0 0 / 4%);
     border-radius: 16px;
   }
 
-  &:focus:not(.focus-visible) {
+  &:focus:not(:focus-visible) {
     outline-color: transparent;
   }
 `;
@@ -197,13 +198,13 @@ const searchBox = css`
   margin-top: 48px;
   background: ${colors.white};
   border-radius: 16px;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 6px rgb(0 0 0 / 10%);
 
   input {
     border-right: 1px solid ${colors.white2};
   }
 
-  @media (max-width: ${breakPoint.sm - 1}px) {
+  @media (width < ${breakPoint.sm}px) {
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     margin-top: 16px;
   }
@@ -218,10 +219,10 @@ const searchInputBox = css`
   &:hover,
   &:focus,
   &:focus-within {
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: rgb(0 0 0 / 4%);
   }
 
-  &:focus:not(.focus-visible) {
+  &:focus:not(:focus-visible) {
     outline-color: transparent;
   }
 `;
@@ -237,7 +238,7 @@ const searchContentBox = css`
   grid-template-columns: repeat(3, 1fr);
   margin: 42px 0;
 
-  @media (max-width: ${breakPoint.sm - 1}px) {
+  @media (width < ${breakPoint.sm}px) {
     display: block;
   }
 `;
@@ -247,7 +248,7 @@ const mobileSearchButton = css`
   width: fit-content;
   margin: 160px auto 40px;
 
-  @media (max-width: ${breakPoint.sm - 1}px) {
+  @media (width < ${breakPoint.sm}px) {
     display: block;
   }
 `;

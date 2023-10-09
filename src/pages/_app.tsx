@@ -1,19 +1,27 @@
-import { Fragment, useState } from 'react';
 import { AppProps } from 'next/app';
-import { Global } from '@emotion/react';
-import 'focus-visible';
+import { Global, CacheProvider, EmotionCache } from '@emotion/react';
 import 'wicg-inert';
 import { DrawerMenuProvider } from '@/components/context/DrawerMenuContext';
 import { globalStyle } from '@/styles/globals';
+import { createEmotionCache } from '@/lib/emotionCache';
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const clientSideEmotionCache = createEmotionCache();
+interface MyAppProps extends AppProps {
+  emotionCache?: EmotionCache;
+}
+
+const MyApp = ({
+  Component,
+  pageProps,
+  emotionCache = clientSideEmotionCache,
+}: MyAppProps) => {
   return (
-    <Fragment>
+    <CacheProvider value={emotionCache}>
       <Global styles={globalStyle} />
       <DrawerMenuProvider>
         <Component {...pageProps} />
       </DrawerMenuProvider>
-    </Fragment>
+    </CacheProvider>
   );
 };
 

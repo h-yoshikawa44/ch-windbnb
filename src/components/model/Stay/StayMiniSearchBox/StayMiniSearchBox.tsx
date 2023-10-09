@@ -1,9 +1,10 @@
-import { VFC, ComponentPropsWithRef } from 'react';
+import { FC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
 import { Search } from '@emotion-icons/material-rounded/Search';
+import { rgba } from 'polished';
 import { Guests } from '@/models/Stay';
-import { fonts, colors } from '@/styles/constants';
-import { createRGBAColor } from '@/lib/color';
+import { colorRatios, colors } from '@/styles/constants';
+import { mulish } from '@/styles/fonts';
 
 type Props = ComponentPropsWithRef<'form'> & {
   location: string;
@@ -13,7 +14,7 @@ type Props = ComponentPropsWithRef<'form'> & {
   onSearch: (ev: React.FormEvent<HTMLFormElement>) => void;
 };
 
-const StayMiniSearchBox: VFC<Props> = ({
+const StayMiniSearchBox: FC<Props> = ({
   location,
   guests,
   isDrawerOpen,
@@ -29,9 +30,9 @@ const StayMiniSearchBox: VFC<Props> = ({
         aria-controls="search-drawer-menu"
         aria-expanded={isDrawerOpen}
         onClick={onDrawerOpen}
-        onKeyPress={(ev) => {
-          ev.preventDefault();
+        onKeyDown={(ev) => {
           if (ev.key === 'Enter') {
+            ev.preventDefault();
             onDrawerOpen();
           }
         }}
@@ -47,9 +48,9 @@ const StayMiniSearchBox: VFC<Props> = ({
         aria-controls="search-drawer-menu"
         aria-expanded={isDrawerOpen}
         onClick={onDrawerOpen}
-        onKeyPress={(ev) => {
-          ev.preventDefault();
+        onKeyDown={(ev) => {
           if (ev.key === 'Enter') {
+            ev.preventDefault();
             onDrawerOpen();
           }
         }}
@@ -73,7 +74,7 @@ const searchBox = css`
   height: 56px;
   background: ${colors.white};
   border-radius: 16px;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 6px rgb(0 0 0 / 10%);
 
   input {
     border-right: 1px solid ${colors.white2};
@@ -81,21 +82,21 @@ const searchBox = css`
 `;
 
 const searchBoxDummyInput = css`
-  font-family: ${fonts.mulish};
+  display: flex;
+  align-items: center;
+  font-family: ${mulish.style.fontFamily};
   font-size: 14px;
   font-weight: normal;
   line-height: 18px;
   cursor: pointer;
   border: none;
-  display: flex;
-  align-items: center;
 
   &:hover,
   &:focus {
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: rgb(0 0 0 / 4%);
   }
 
-  &:focus:not(.focus-visible) {
+  &:focus:not(:focus-visible) {
     outline: none;
   }
 `;
@@ -116,7 +117,7 @@ const dummyInputGuests = css`
 `;
 
 const searchButton = css`
-  padding: 16px 16px;
+  padding: 16px;
   color: ${colors.primary};
   cursor: pointer;
   background-color: ${colors.white};
@@ -125,11 +126,10 @@ const searchButton = css`
 
   &:hover,
   &:focus {
-    /* stylelint-disable-next-line function-name-case */
-    background-color: ${createRGBAColor(colors.primary, 0.1)};
+    background-color: ${rgba(colors.primary, colorRatios.buttonAlpha)};
   }
 
-  &:focus:not(.focus-visible) {
+  &:focus:not(:focus-visible) {
     outline-color: transparent;
   }
 `;

@@ -20,16 +20,16 @@ const DrawerBase: FC<Props> = ({ open, onClose, children, ...props }) => {
 
 const searchDrawer = css`
   position: fixed;
+  inset: 0;
   z-index: ${zIndex.menu};
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
   width: 100%;
   overflow-y: auto;
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.3s, visibility 0.3s ease 0.3s, transform 0.3s;
+  transition:
+    opacity 0.3s,
+    visibility 0.3s ease 0.3s,
+    transform 0.3s;
   transform: translateY(-100%);
 `;
 
@@ -54,7 +54,7 @@ const Drawer: FC<Props> = ({ open, onClose, children, ...props }) => {
     <DrawerBase open={open} onClose={onClose} {...props}>
       {children}
     </DrawerBase>,
-    document.body
+    document.body,
   );
 };
 

@@ -1,9 +1,10 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import { css } from '@emotion/react';
 import Footer from '@/components/common/Footer';
 
 type Props = {
   inertFlg: boolean;
+  children: ReactNode;
 };
 
 const Layout: FC<Props> = ({ inertFlg, children }) => {
