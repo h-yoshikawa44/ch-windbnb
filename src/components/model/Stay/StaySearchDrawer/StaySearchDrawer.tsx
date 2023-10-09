@@ -66,9 +66,9 @@ const StaySearchDrawer: FC<Props> = ({
               css={[searchInputBox, tab === 'location' && searchInputBoxSelect]}
               tabIndex={0}
               onClick={() => handleSelectTab('location')}
-              onKeyPress={(ev) => {
-                ev.preventDefault();
+              onKeyDown={(ev) => {
                 if (ev.key === 'Enter') {
+                  ev.preventDefault();
                   handleSelectTab('location');
                 }
               }}
@@ -85,9 +85,9 @@ const StaySearchDrawer: FC<Props> = ({
               css={[searchInputBox, tab === 'guests' && searchInputBoxSelect]}
               tabIndex={0}
               onClick={() => handleSelectTab('guests')}
-              onKeyPress={(ev) => {
-                ev.preventDefault();
+              onKeyDown={(ev) => {
                 if (ev.key === 'Enter') {
+                  ev.preventDefault();
                   handleSelectTab('guests');
                 }
               }}

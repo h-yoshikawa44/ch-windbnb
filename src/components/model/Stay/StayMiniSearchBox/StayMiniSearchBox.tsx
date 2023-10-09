@@ -30,9 +30,9 @@ const StayMiniSearchBox: FC<Props> = ({
         aria-controls="search-drawer-menu"
         aria-expanded={isDrawerOpen}
         onClick={onDrawerOpen}
-        onKeyPress={(ev) => {
-          ev.preventDefault();
+        onKeyDown={(ev) => {
           if (ev.key === 'Enter') {
+            ev.preventDefault();
             onDrawerOpen();
           }
         }}
@@ -48,9 +48,9 @@ const StayMiniSearchBox: FC<Props> = ({
         aria-controls="search-drawer-menu"
         aria-expanded={isDrawerOpen}
         onClick={onDrawerOpen}
-        onKeyPress={(ev) => {
-          ev.preventDefault();
+        onKeyDown={(ev) => {
           if (ev.key === 'Enter') {
+            ev.preventDefault();
             onDrawerOpen();
           }
         }}
