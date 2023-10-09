@@ -48,7 +48,7 @@ const stayCard = css`
 
   &:hover,
   &:focus {
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: rgb(0 0 0 / 4%);
   }
 
   @media (max-width: ${breakPoint.sm - 1}px) {

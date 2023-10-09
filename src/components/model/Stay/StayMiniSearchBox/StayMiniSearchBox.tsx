@@ -74,7 +74,7 @@ const searchBox = css`
   height: 56px;
   background: ${colors.white};
   border-radius: 16px;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 6px rgb(0 0 0 / 10%);
 
   input {
     border-right: 1px solid ${colors.white2};
@@ -93,7 +93,7 @@ const searchBoxDummyInput = css`
 
   &:hover,
   &:focus {
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: rgb(0 0 0 / 4%);
   }
 
   &:focus:not(.focus-visible) {

@@ -29,7 +29,7 @@ const clearButton = css`
 
   &:hover,
   &:focus {
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: rgb(0 0 0 / 4%);
   }
 
   &:focus:not(.focus-visible) {

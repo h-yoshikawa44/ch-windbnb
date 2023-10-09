@@ -41,7 +41,7 @@ const searchLocationItem = css`
 
   &:hover,
   &:focus {
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: rgb(0 0 0 / 4%);
   }
 
   &:focus:not(.focus-visible) {
@@ -80,9 +80,9 @@ const searchLocationList = css`
   display: flex;
   flex-direction: column;
   padding: 0 24px;
-  list-style: none;
   margin-block-start: 0;
   margin-block-end: 0;
+  list-style: none;
 `;
 
 export default StaySelectLocationList;
