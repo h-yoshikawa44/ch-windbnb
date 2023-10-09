@@ -11,14 +11,14 @@ export const breakPoint = {
   md,
   lg,
   xl,
-};
+} as const;
 
 // 奥行き
 const menu = 1200;
 
 export const zIndex = {
   menu,
-};
+} as const;
 
 // 色
 const black = '#333';
@@ -42,4 +42,13 @@ export const colors = {
   white,
   primary,
   placeHolder,
-};
+} as const;
+
+// 色の変化
+const buttonDarken = 0.2;
+const buttonAlpha = 0.1;
+
+export const colorRatios = {
+  buttonDarken,
+  buttonAlpha,
+} as const;

@@ -71,9 +71,7 @@ Base
 Other major libraries
 - [emotion](https://emotion.sh/)
 - [emotion-icons](https://emotion-icons.dev/)
-- [csx](https://typestyle.github.io/#/colors)
-- ~~[ky](https://github.com/sindresorhus/ky)~~
-- ~~[React Query](https://react-query.tanstack.com/)~~
+- [polished](https://polished.js.org/)
 - [postcss-preset-env](https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env)
 - [wicg-inert](https://github.com/WICG/inert)
 

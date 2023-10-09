@@ -1,9 +1,9 @@
 import { FC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
 import { Search } from '@emotion-icons/material-rounded/Search';
-import { colors } from '@/styles/constants';
+import { darken } from 'polished';
+import { colorRatios, colors } from '@/styles/constants';
 import { mulish } from '@/styles/fonts';
-import { createDarkenColor } from '@/lib/color';
 
 type Props = ComponentPropsWithRef<'button'>;
 
@@ -32,7 +32,7 @@ const searchButton = css`
   &:hover,
   &:focus {
     /* stylelint-disable-next-line function-name-case */
-    background-color: ${createDarkenColor(colors.primary, '20%')};
+    background-color: ${darken(colorRatios.buttonDarken, colors.primary)};
   }
 
   &:focus:not(:focus-visible) {

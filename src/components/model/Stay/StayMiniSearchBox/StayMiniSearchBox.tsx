@@ -1,10 +1,10 @@
 import { FC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
 import { Search } from '@emotion-icons/material-rounded/Search';
+import { rgba } from 'polished';
 import { Guests } from '@/models/Stay';
-import { colors } from '@/styles/constants';
+import { colorRatios, colors } from '@/styles/constants';
 import { mulish } from '@/styles/fonts';
-import { createRGBAColor } from '@/lib/color';
 
 type Props = ComponentPropsWithRef<'form'> & {
   location: string;
@@ -126,8 +126,7 @@ const searchButton = css`
 
   &:hover,
   &:focus {
-    /* stylelint-disable-next-line function-name-case */
-    background-color: ${createRGBAColor(colors.primary, 0.1)};
+    background-color: ${rgba(colors.primary, colorRatios.buttonAlpha)};
   }
 
   &:focus:not(:focus-visible) {
