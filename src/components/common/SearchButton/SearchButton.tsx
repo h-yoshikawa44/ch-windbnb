@@ -31,7 +31,6 @@ const searchButton = css`
 
   &:hover,
   &:focus {
-    /* stylelint-disable-next-line function-name-case */
     background-color: ${darken(colorRatios.buttonDarken, colors.primary)};
   }
 
