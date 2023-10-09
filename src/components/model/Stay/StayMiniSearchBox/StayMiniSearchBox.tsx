@@ -96,7 +96,7 @@ const searchBoxDummyInput = css`
     background-color: rgb(0 0 0 / 4%);
   }
 
-  &:focus:not(.focus-visible) {
+  &:focus:not(:focus-visible) {
     outline: none;
   }
 `;
@@ -130,7 +130,7 @@ const searchButton = css`
     background-color: ${createRGBAColor(colors.primary, 0.1)};
   }
 
-  &:focus:not(.focus-visible) {
+  &:focus:not(:focus-visible) {
     outline-color: transparent;
   }
 `;

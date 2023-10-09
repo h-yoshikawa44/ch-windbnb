@@ -35,7 +35,7 @@ const searchButton = css`
     background-color: ${createDarkenColor(colors.primary, '20%')};
   }
 
-  &:focus:not(.focus-visible) {
+  &:focus:not(:focus-visible) {
     outline: none;
   }
 `;

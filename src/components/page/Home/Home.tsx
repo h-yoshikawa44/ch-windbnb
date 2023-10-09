@@ -92,14 +92,14 @@ const headerContentsBox = css`
   justify-content: space-between;
   margin-top: 32px;
 
-  @media (max-width: ${breakPoint.sm - 1}px) {
+  @media (width < ${breakPoint.sm}px) {
     display: block;
     margin-top: 24px;
   }
 `;
 
 const searchBoxMargin = css`
-  @media (max-width: ${breakPoint.sm - 1}px) {
+  @media (width < ${breakPoint.sm}px) {
     width: fit-content;
     margin: 32px auto 0;
   }

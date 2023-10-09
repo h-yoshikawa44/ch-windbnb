@@ -32,7 +32,7 @@ const clearButton = css`
     background-color: rgb(0 0 0 / 4%);
   }
 
-  &:focus:not(.focus-visible) {
+  &:focus:not(:focus-visible) {
     outline-color: transparent;
   }
 `;

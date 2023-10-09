@@ -143,7 +143,7 @@ const container = css`
 const hiddenDisplay = css`
   visibility: hidden;
 
-  @media (max-width: ${breakPoint.sm - 1}px) {
+  @media (width < ${breakPoint.sm}px) {
     display: none;
   }
 `;
@@ -151,7 +151,7 @@ const hiddenDisplay = css`
 const desktopDisplay = css`
   display: inherit;
 
-  @media (max-width: ${breakPoint.sm - 1}px) {
+  @media (width < ${breakPoint.sm}px) {
     display: none;
   }
 `;
@@ -187,7 +187,7 @@ const drawerCloseButton = css`
     border-radius: 16px;
   }
 
-  &:focus:not(.focus-visible) {
+  &:focus:not(:focus-visible) {
     outline-color: transparent;
   }
 `;
@@ -204,7 +204,7 @@ const searchBox = css`
     border-right: 1px solid ${colors.white2};
   }
 
-  @media (max-width: ${breakPoint.sm - 1}px) {
+  @media (width < ${breakPoint.sm}px) {
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     margin-top: 16px;
   }
@@ -222,7 +222,7 @@ const searchInputBox = css`
     background-color: rgb(0 0 0 / 4%);
   }
 
-  &:focus:not(.focus-visible) {
+  &:focus:not(:focus-visible) {
     outline-color: transparent;
   }
 `;
@@ -238,7 +238,7 @@ const searchContentBox = css`
   grid-template-columns: repeat(3, 1fr);
   margin: 42px 0;
 
-  @media (max-width: ${breakPoint.sm - 1}px) {
+  @media (width < ${breakPoint.sm}px) {
     display: block;
   }
 `;
@@ -248,7 +248,7 @@ const mobileSearchButton = css`
   width: fit-content;
   margin: 160px auto 40px;
 
-  @media (max-width: ${breakPoint.sm - 1}px) {
+  @media (width < ${breakPoint.sm}px) {
     display: block;
   }
 `;

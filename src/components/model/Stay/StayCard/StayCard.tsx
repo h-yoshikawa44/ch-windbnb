@@ -51,7 +51,7 @@ const stayCard = css`
     background-color: rgb(0 0 0 / 4%);
   }
 
-  @media (max-width: ${breakPoint.sm - 1}px) {
+  @media (width < ${breakPoint.sm}px) {
     padding: 16px 0;
   }
 `;
