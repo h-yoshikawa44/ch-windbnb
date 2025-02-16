@@ -1,4 +1,4 @@
-import { useState, useContext, useCallback, useMemo } from 'react';
+import { useState, useContext, useCallback } from 'react';
 import { DrawerMenuContext } from '@/components/context/DrawerMenuContext';
 import { GetListRequestQuery, Guests, Stays } from '@/models/Stay';
 import { stays as stayData } from '@/data/stays';
