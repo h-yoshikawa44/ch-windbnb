@@ -48,7 +48,7 @@ export const resetStyle = css`
   button,
   input,
   label {
-    line-height: 1.1;
+    line-height: 1.5;
   }
 
   /* A elements that don't have a class get default styles */

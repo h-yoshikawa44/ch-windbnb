@@ -33,6 +33,8 @@ const icon = css`
 const searchLocationItem = css`
   width: 100%;
   padding: 18px 0;
+  font-size: 16px;
+  line-height: 24px;
   text-align: left;
   cursor: pointer;
   background-color: ${colors.white};
