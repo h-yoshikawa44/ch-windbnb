@@ -14,7 +14,6 @@
     "fix:eslint": "npm run lint:eslint -- --fix",
     "fix:stylelint": "npm run lint:stylelint -- --fix",
     "fix:prettier": "npm run check:prettier -- --write",
-    "preinstall": "typesync || echo 'skip typesync'",
     "prepare": "simple-git-hooks || echo 'Can not set git hooks'"
   },
   "dependencies": {
@@ -34,11 +33,7 @@
     "wicg-inert": "^3.1.1"
   },
   "devDependencies": {
-    "@types/eslint": "^8.44.3",
-    "@types/eslint-config-prettier": "^6.11.1",
-    "@types/lint-staged": "^13.2.0",
     "@types/node": "^22.13.1",
-    "@types/prettier": "^3.0.0",
     "@types/react": "^18.2.25",
     "@types/react-dom": "^18.2.11",
     "eslint": "^8.51.0",
@@ -52,8 +47,7 @@
     "stylelint-config-recess-order": "^4.3.0",
     "stylelint-config-standard": "^34.0.0",
     "stylelint-order": "^6.0.3",
-    "typescript": "^5.2.2",
-    "typesync": "^0.11.1"
+    "typescript": "^5.2.2"
   },
   "volta": {
     "node": "22.13.1"
