@@ -122,8 +122,7 @@ const pageTitle = css`
 const stayCardGrid = css`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  row-gap: 32px;
-  column-gap: 32px;
+  gap: 32px;
   padding-bottom: 40px;
 `;
 

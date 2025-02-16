@@ -26,8 +26,8 @@ const SelectLocationItem: FC<ItemProps> = ({ value, onSelectLocation }) => {
 const icon = css`
   display: inline;
   margin-right: 8px;
-  color: ${colors.blackLighten};
   vertical-align: text-bottom;
+  color: ${colors.blackLighten};
 `;
 
 const searchLocationItem = css`
@@ -80,8 +80,7 @@ const searchLocationList = css`
   display: flex;
   flex-direction: column;
   padding: 0 24px;
-  margin-block-start: 0;
-  margin-block-end: 0;
+  margin-block: 0;
   list-style: none;
 `;
 

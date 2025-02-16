@@ -22,22 +22,22 @@ const searchDrawer = css`
   position: fixed;
   inset: 0;
   z-index: ${zIndex.menu};
+  visibility: hidden;
   width: 100%;
   overflow-y: auto;
-  visibility: hidden;
   opacity: 0;
+  transform: translateY(-100%);
   transition:
     opacity 0.3s,
     visibility 0.3s ease 0.3s,
     transform 0.3s;
-  transform: translateY(-100%);
 `;
 
 const searchDrawerOpen = css`
   visibility: visible;
   opacity: 1;
-  transition-delay: 0s;
   transform: translateY(0);
+  transition-delay: 0s;
 `;
 
 const Drawer: FC<Props> = ({ open, onClose, children, ...props }) => {

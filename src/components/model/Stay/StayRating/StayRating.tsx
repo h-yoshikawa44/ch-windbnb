@@ -22,8 +22,8 @@ const rating = css`
 `;
 
 const icon = css`
-  color: ${colors.primary};
   vertical-align: text-bottom;
+  color: ${colors.primary};
 `;
 
 const ratingValue = css`
