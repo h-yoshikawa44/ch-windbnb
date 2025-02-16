@@ -43,8 +43,8 @@ const StayCard: FC<Props> = ({
 
 const stayCard = css`
   padding: 16px 8px;
-  border-radius: 16px;
   outline: none;
+  border-radius: 16px;
 
   &:hover,
   &:focus {

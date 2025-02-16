@@ -36,9 +36,9 @@ const searchInput = css`
   font-weight: normal;
   line-height: 18px;
   cursor: inherit;
+  outline: none;
   background-color: inherit;
   border: none;
-  outline: none;
 
   ::placeholder {
     color: ${colors.placeHolder};

@@ -9,15 +9,7 @@ type Props = {
 
 const Layout: FC<Props> = ({ inertFlg, children }) => {
   return (
-    <div
-      css={globalLayout}
-      ref={(node) =>
-        node &&
-        (inertFlg
-          ? node.setAttribute('inert', '')
-          : node.removeAttribute('inert'))
-      }
-    >
+    <div css={globalLayout} inert={inertFlg}>
       <div css={contents}>{children}</div>
       <Footer />
     </div>
