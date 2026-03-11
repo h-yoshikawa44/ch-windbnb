@@ -60,7 +60,7 @@ Even though it was only one screen and a drawer menu, there were surprisingly ma
 Base
 - [Node.js](https://nodejs.org/)：24.14.0
 - [TypeScript](https://www.typescriptlang.org/)：5.7.3
-- [React](https://reactjs.org/)：19.0.0
+- [React](https://reactjs.org/)：19.2.4
 - [Next.js](https://nextjs.org/)：15.1.7
 
 Other major libraries
