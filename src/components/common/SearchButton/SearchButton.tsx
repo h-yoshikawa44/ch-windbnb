@@ -1,7 +1,7 @@
 import { FC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
 import { Search } from '@emotion-icons/material-rounded/Search';
-import { darken } from 'polished';
+import { TinyColor } from '@ctrl/tinycolor';
 import { colorRatios, colors } from '@/styles/constants';
 import { mulish } from '@/styles/fonts';
 
@@ -31,7 +31,9 @@ const searchButton = css`
 
   &:hover,
   &:focus {
-    background-color: ${darken(colorRatios.buttonDarken, colors.primary)};
+    background-color: ${new TinyColor(colors.primary)
+      .darken(colorRatios.buttonDarken)
+      .toHexString()};
   }
 
   &:focus:not(:focus-visible) {
