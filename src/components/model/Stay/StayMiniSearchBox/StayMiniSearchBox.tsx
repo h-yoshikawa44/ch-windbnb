@@ -1,7 +1,7 @@
 import { FC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
 import { Search } from '@emotion-icons/material-rounded/Search';
-import { rgba } from 'polished';
+import { TinyColor } from '@ctrl/tinycolor';
 import { Guests } from '@/models/Stay';
 import { colorRatios, colors } from '@/styles/constants';
 import { mulish } from '@/styles/fonts';
@@ -126,7 +126,9 @@ const searchButton = css`
 
   &:hover,
   &:focus {
-    background-color: ${rgba(colors.primary, colorRatios.buttonAlpha)};
+    background-color: ${new TinyColor(colors.primary)
+      .setAlpha(colorRatios.buttonAlpha)
+      .toRgbString()};
   }
 
   &:focus:not(:focus-visible) {

@@ -18,13 +18,13 @@
     "prepare": "lefthook install || echo 'Can not set git hooks'"
   },
   "dependencies": {
+    "@ctrl/tinycolor": "^4.2.1",
     "@emotion-icons/material-rounded": "^3.14.0",
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
     "@emotion/server": "^11.11.0",
     "@emotion/styled": "^11.14.1",
     "next": "^16.4.2",
-    "polished": "^4.3.1",
     "postcss": "^8.5.30",
     "postcss-preset-env": "^11.6.1",
     "react": "^19.3.1",
